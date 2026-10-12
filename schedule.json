@@ -1,0 +1,24 @@
+{
+  "channels": {
+    "ig": "6accec1f778b240e2fe75ac7",
+    "x": "6accec57778b240e2fe75d3c"
+  },
+  "posts": [
+    {
+      "id": "post00",
+      "when": "2026-10-13T20:30:00+03:30",
+      "tg": {
+        "image": "posts/post00/square.png",
+        "caption": "**به‌زودی**\ndiwan.center شروع به کار خواهد کرد."
+      },
+      "ig": {
+        "image": "posts/post00/square.png",
+        "caption": "به‌زودی\ndiwan.center شروع به کار خواهد کرد.\n\nلینک در بیو.\n#دیوان"
+      },
+      "x": {
+        "image": "posts/post00/wide.png",
+        "caption": "به‌زودی\ndiwan.center شروع به کار خواهد کرد."
+      }
+    }
+  ]
+}

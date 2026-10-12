@@ -1,0 +1,35 @@
+name: publish
+on:
+  schedule:
+    - cron: "0 * * * *"   # hourly at :00 UTC = :30 Tehran
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (no sending)"
+        type: boolean
+        default: false
+concurrency: publish
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Publish due posts
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          IMAGE_BASE_URL: ${{ vars.IMAGE_BASE_URL }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
+        run: node scripts/publish.mjs
+      - name: Save state
+        if: always()
+        run: |
+          git config user.name "diwan-bot"
+          git config user.email "diwan-bot@users.noreply.github.com"
+          git add state.json
+          git diff --cached --quiet || (git commit -m "state: update" && git pull --rebase && git push)
