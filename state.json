@@ -10,5 +10,17 @@
       "messageId": 4,
       "at": "2026-10-12T19:41:50.659Z"
     }
+  },
+  "post01": {
+    "ig": {
+      "bufferId": "6acd43db2c1b16d2e1224106",
+      "dueAt": "2026-10-13T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "x": {
+      "bufferId": "6acd43dba36dd851812e385d",
+      "dueAt": "2026-10-13T17:00:00.000Z",
+      "status": "scheduled"
+    }
   }
 }
