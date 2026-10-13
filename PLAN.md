@@ -2,14 +2,14 @@
 
 Publishing: one post per day, 20:30 Tehran (Telegram via bot, Instagram/X via Buffer).
 
-## Standing message rule
-- **دیوان تا اطلاع ثانوی مجانی است.** Mention this where it fits (esp. posts 4, 6, 12–14, 20). Never imply that anything is paid.
+## Message to include
+- **«دیوان تا اطلاع ثانوی مجانی است»** goes in **post 4 only** (چطور شروع کنم؟). Do not repeat it in other posts unless asked.
 
 ## Week 1 — introduction
 1. سرآغاز دیوان — scheduled 2026-10-13 20:30
 2. دیوان چیست؟
 3. چرا دیوان؟
-4. چطور شروع کنم؟
+4. چطور شروع کنم؟ — includes the free-until-further-notice line
 5. دیوان کجاست؟ (X, Instagram, Telegram accounts)
 6. سه اثر رایگان (meaning to confirm)
 7. نقد، نه لایک
@@ -31,7 +31,7 @@ Publishing: one post per day, 20:30 Tehran (Telegram via bot, Instagram/X via Bu
 
 ## Week 4 (draft)
 19. آثار برگزیده (Substack mention optional)
-20. دیوان پلاس و عضویت نویسنده — free for now
+20. دیوان پلاس و عضویت نویسنده
 21. جمع‌بندی ماه اول و دعوت به مشارکت
 
 ## Notes
