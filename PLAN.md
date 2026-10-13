@@ -5,6 +5,8 @@ Publishing: one post per day, 20:30 Tehran (Telegram via bot, Instagram/X via Bu
 ## Message to include
 - **«دیوان تا اطلاع ثانوی مجانی است»** goes in **post 4 only** (چطور شروع کنم؟). Do not repeat it in other posts unless asked.
 
+- Never write «لینک در بیو» in captions; write **diwan.center** instead.
+
 ## Week 1 — introduction
 1. سرآغاز دیوان — scheduled 2026-10-13 20:30
 2. دیوان چیست؟
