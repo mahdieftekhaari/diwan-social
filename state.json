@@ -22,5 +22,17 @@
       "dueAt": "2026-10-13T17:00:00.000Z",
       "status": "scheduled"
     }
+  },
+  "post02": {
+    "ig": {
+      "bufferId": "6ace5d630b1619ab65685d51",
+      "dueAt": "2026-10-14T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "x": {
+      "bufferId": "6ace5d64d9d45db80a066349",
+      "dueAt": "2026-10-14T17:00:00.000Z",
+      "status": "scheduled"
+    }
   }
 }
