@@ -9,7 +9,7 @@ Publishing: one post per day, 20:30 Tehran (Telegram via bot, Instagram/X via Bu
 
 ## Week 1 — introduction
 1. سرآغاز دیوان — scheduled 2026-10-13 20:30
-2. دیوان چیست؟
+2. دیوان چیست؟ — scheduled 2026-10-14 20:30
 3. چرا دیوان؟
 4. چطور شروع کنم؟ — includes the free-until-further-notice line
 5. دیوان کجاست؟ (X, Instagram, Telegram accounts)
