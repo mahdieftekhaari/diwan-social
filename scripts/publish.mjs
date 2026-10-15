@@ -10,6 +10,7 @@ const {
 
 const BUFFER_LEAD_MS = 36 * 3600e3;   // hand posts to Buffer up to 36h ahead
 const BUFFER_MIN_MS = 5 * 60e3;       // Buffer needs a future dueAt
+const TG_WAIT_MAX_MS = 5.5 * 3600e3;  // a run may sleep up to 5.5h to send Telegram exactly on time
 const TG_MAX_LATE_MS = 24 * 3600e3;   // don't send Telegram posts later than 24h after schedule
 
 const schedule = JSON.parse(await readFile("schedule.json", "utf8"));
@@ -67,19 +68,11 @@ async function scheduleBuffer(p, key) {
   return { bufferId: res.post.id, dueAt: res.post.dueAt, status: res.post.status };
 }
 
+// Pass 1: hand Instagram/X posts to Buffer (it publishes them itself at dueAt).
 for (const p of schedule.posts) {
   const when = Date.parse(p.when);
   state[p.id] ??= {};
   const s = state[p.id];
-
-  if (p.tg && !s.tg && when <= now) {
-    if (now - when > TG_MAX_LATE_MS) { s.tg = { skipped: "too late" }; changed = true; log(`- ${p.id}/tg skipped (too late)`); }
-    else try {
-      if (DRY_RUN) log(`[dry] tg ${p.id}`);
-      else { s.tg = await sendTelegram(p); changed = true; log(`✓ ${p.id}/tg sent`); }
-    } catch (e) { fail(p.id, "tg", e.message); }
-  }
-
   for (const key of ["ig", "x"]) {
     if (!p[key] || s[key]) continue;
     if (when - now > BUFFER_LEAD_MS) continue;
@@ -90,6 +83,24 @@ for (const p of schedule.posts) {
       else { s[key] = await scheduleBuffer(p, key); changed = true; log(`✓ ${p.id}/${key} scheduled in Buffer`); }
     } catch (e) { fail(p.id, key, e.message); }
   }
+}
+
+// Pass 2: Telegram. GitHub cron runs are often hours late, so if a post is due soon,
+// this run waits until its exact time instead of leaving it for the next (late) run.
+for (const p of schedule.posts) {
+  const when = Date.parse(p.when);
+  const s = state[p.id];
+  if (!p.tg || s.tg) continue;
+  if (when > Date.now()) {
+    if (DRY_RUN || when - Date.now() > TG_WAIT_MAX_MS) continue;
+    log(`… waiting until ${p.when} to send ${p.id}/tg`);
+    await new Promise((r) => setTimeout(r, when - Date.now()));
+  }
+  if (Date.now() - when > TG_MAX_LATE_MS) { s.tg = { skipped: "too late" }; changed = true; log(`- ${p.id}/tg skipped (too late)`); continue; }
+  try {
+    if (DRY_RUN) log(`[dry] tg ${p.id}`);
+    else { s.tg = await sendTelegram(p); changed = true; log(`✓ ${p.id}/tg sent`); }
+  } catch (e) { fail(p.id, "tg", e.message); }
 }
 
 if (changed) await writeFile("state.json", JSON.stringify(state, null, 2) + "\n");
