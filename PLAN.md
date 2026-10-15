@@ -3,15 +3,15 @@
 Publishing: one post per day, 20:30 Tehran (Telegram via bot, Instagram/X via Buffer).
 
 ## Message to include
-- **«دیوان تا اطلاع ثانوی مجانی است»** goes in **post 4 only** (چطور شروع کنم؟). Do not repeat it in other posts unless asked.
+- **«فعلاً همه‌ی امکانات دیوان رایگان است.»** goes in **post 3 only** (چرا دیوان؟) — moved from post 4 by the user on 2026-10-15. Do not repeat it in other posts unless asked.
 
 - Never write «لینک در بیو» in captions; write **diwan.center** instead.
 
 ## Week 1 — introduction
 1. سرآغاز دیوان — scheduled 2026-10-13 20:30
 2. دیوان چیست؟ — scheduled 2026-10-14 20:30
-3. چرا دیوان؟
-4. چطور شروع کنم؟ — includes the free-until-further-notice line
+3. چرا دیوان؟ — includes the free line
+4. چطور شروع کنم؟
 5. دیوان کجاست؟ (X, Instagram, Telegram accounts)
 6. سه اثر رایگان (meaning to confirm)
 7. نقد، نه لایک
