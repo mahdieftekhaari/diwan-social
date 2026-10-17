@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face { font-family: "Vazirmatn"; font-weight: 400; src: url("assets/fonts/Vazirmatn-Regular.woff2") format("woff2"); }
+@font-face { font-family: "Vazirmatn"; font-weight: 500; src: url("assets/fonts/Vazirmatn-Medium.woff2") format("woff2"); }
+@font-face { font-family: "Vazirmatn"; font-weight: 600; src: url("assets/fonts/Vazirmatn-SemiBold.woff2") format("woff2"); }
+@font-face { font-family: "Vazirmatn"; font-weight: 700; src: url("assets/fonts/Vazirmatn-Bold.woff2") format("woff2"); }
+@font-face { font-family: "Vazirmatn"; font-weight: 800; src: url("assets/fonts/Vazirmatn-ExtraBold.woff2") format("woff2"); }
+:root { --paper:#faf7f2; --ink:#1c1a17; --gold:#c8a44a; --gold-d:#8a6d1f; --muted:#6b665d; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1920px; height:1080px; overflow:hidden; background:var(--paper); font-family:"Vazirmatn", sans-serif; }
+#root { position:relative; width:100%; height:100%; background:#e9e3d6; }
+.scene { position:absolute; inset:0; }
+.page { position:absolute; inset:0; background:var(--paper);
+  background-image: radial-gradient(rgba(200,164,74,.10) 1.2px, transparent 1.4px); background-size: 26px 26px;
+  backface-visibility:hidden; overflow:hidden; }
+.shade { position:absolute; inset:0; pointer-events:none; opacity:0;
+  background: linear-gradient(270deg, rgba(0,0,0,0) 0%, rgba(60,45,10,.35) 100%); }
+.hdr { position:absolute; top:34px; left:70px; right:70px; height:80px; display:flex; align-items:center; justify-content:space-between; }
+.brand { display:flex; align-items:center; gap:16px; font-weight:800; font-size:44px; color:var(--ink); }
+.brand img { height:68px; }
+.stepno { font-weight:600; font-size:30px; color:var(--gold-d); padding:8px 26px; border:2px solid var(--gold); border-radius:999px; background:#fff8e6; }
+.card { position:absolute; left:192px; top:130px; width:1536px; height:683px; border-radius:18px;
+  background:#fff; box-shadow:0 30px 80px rgba(60,45,10,.22), 0 0 0 1px rgba(60,45,10,.10); overflow:hidden; direction:ltr; }
+.bar { height:44px; background:#efe9dc; display:flex; align-items:center; gap:10px; padding:0 18px; border-bottom:1px solid rgba(60,45,10,.12); }
+.bar i { width:13px; height:13px; border-radius:50%; background:#d8cfbb; display:block; }
+.bar { position:relative; }
+.bar .url { position:absolute; left:50%; top:7px; transform:translateX(-50%); background:#faf7f2; border-radius:999px; padding:4px 28px; font-family:"Vazirmatn"; font-size:20px; color:var(--muted); direction:ltr; }
+.viewport { position:relative; width:1536px; height:639px; background:var(--paper); overflow:hidden; }
+.shot { position:absolute; overflow:hidden; background:var(--paper); }
+.zoomer { position:absolute; }
+.zoomer img { display:block; }
+.ring { position:absolute; border:4px solid var(--gold); border-radius:14px; opacity:0;
+  box-shadow:0 0 0 6px rgba(200,164,74,.28), 0 0 34px rgba(200,164,74,.75); }
+.caption { position:absolute; left:0; right:0; top:830px; display:flex; justify-content:center; padding:0 150px; direction:rtl; }
+.caption span { display:inline-block; text-align:center; font-weight:600; font-size:50px; line-height:1.65; text-wrap:balance; color:var(--ink);
+  background:rgba(255,255,255,.88); border:2px solid rgba(200,164,74,.55); border-radius:26px; padding:12px 44px;
+  box-shadow:0 10px 30px rgba(60,45,10,.10); }
+.prog { position:absolute; left:0; right:0; bottom:0; height:10px; background:rgba(200,164,74,.18); direction:rtl; }
+.prog b { display:block; height:100%; background:var(--gold); width:0; }
+.titlecard { position:absolute; left:0; right:0; top:150px; display:flex; flex-direction:column; align-items:center; gap:22px; }
+.biglogo { height:250px; }
+.titlecard h1 { font-weight:800; font-size:92px; color:var(--ink); line-height:1.3; }
+.titlecard h1.url { font-family:"Vazirmatn"; direction:ltr; letter-spacing:1px; }
+.titlecard h2 { font-weight:600; font-size:56px; color:var(--gold-d); }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="80.0" data-width="1920" data-height="1080">
+<section id="s1" class="clip scene" data-start="0.0" data-duration="6.0" style="z-index:100">
+<div class="page" id="s1-page">
+<div class="hdr"><div class="brand"><img src="assets/logo.png" alt=""><span>دیوان</span></div>
+</div>
+<div class="titlecard"><img class="biglogo" src="assets/logo.png" alt=""><h1>ثبت‌نام و انتشار داستان در دیوان</h1><h2>قدم‌به‌قدم</h2></div>
+<div class="caption" id="s1-cap"><span>برای انتشار یک داستان در دیوان، با من همراه باشید.</span></div>
+<div class="prog"><b id="s1-prog"></b></div>
+<div class="shade" id="s1-shade"></div>
+</div></section>
+<section id="s2" class="clip scene" data-start="5.0" data-duration="6.0" style="z-index:99">
+<div class="page" id="s2-page">
+<div class="hdr"><div class="brand"><img src="assets/logo.png" alt=""><span>دیوان</span></div>
+<div class="stepno">قدم ۱ از ۹</div>
+</div>
+<div class="card" id="s2-card"><div class="bar"><i></i><i></i><i></i><span class="url" id="s2-u0">diwan.center</span></div><div class="viewport">
+<div class="shot" id="s2-sh0" style="left:0;top:0;width:1536px;height:639px"><div class="zoomer" id="s2-sh0-z" style="left:0px;top:0px;width:1536px;height:639px"><img src="assets/shots/home.jpg" width="1536" height="639" alt="">
+<div class="ring" id="s2-sh0-r0" style="left:1150px;top:482px;width:170px;height:58px"></div>
+</div></div>
+</div></div>
+<div class="caption" id="s2-cap"><span>به diwan.center بروید و روی «من هم هستم» بزنید.</span></div>
+<div class="prog"><b id="s2-prog"></b></div>
+<div class="shade" id="s2-shade"></div>
+</div></section>
+<section id="s3" class="clip scene" data-start="10.0" data-duration="7.5" style="z-index:98">
+<div class="page" id="s3-page">
+<div class="hdr"><div class="brand"><img src="assets/logo.png" alt=""><span>دیوان</span></div>
+<div class="stepno">قدم ۲ از ۹</div>
+</div>
+<div class="card" id="s3-card"><div class="bar"><i></i><i></i><i></i><span class="url" id="s3-u0">diwan.center/signup</span></div><div class="viewport">
+<div class="shot" id="s3-sh0" style="left:0;top:0;width:1536px;height:639px"><div class="zoomer" id="s3-sh0-z" style="left:0px;top:0px;width:1536px;height:639px"><img src="assets/shots/signup.jpg" width="1536" height="639" alt="">
+<div class="ring" id="s3-sh0-r0" style="left:594px;top:240px;width:346px;height:42px"></div>
+<div class="ring" id="s3-sh0-r1" style="left:594px;top:314px;width:346px;height:42px"></div>
+<div class="ring" id="s3-sh0-r2" style="left:594px;top:358px;width:346px;height:42px"></div>
+</div></div>
+</div></div>
+<div class="caption" id="s3-cap"><span>ایمیل و رمز عبورتان را وارد کنید و «نام‌نویسی» را بزنید.</span></div>
+<div class="prog"><b id="s3-prog"></b></div>
+<div class="shade" id="s3-shade"></div>
+</div></section>
+<section id="s4" class="clip scene" data-start="16.5" data-duration="9.5" style="z-index:97">
+<div class="page" id="s4-page">
+<div class="hdr"><div class="brand"><img src="assets/logo.png" alt=""><span>دیوان</span></div>
+<div class="stepno">قدم ۳ از ۹</div>
+</div>
+<div class="card" id="s4-card"><div class="bar"><i></i><i></i><i></i><span class="url" id="s4-u0">diwan.center/signup/check-email</span><span class="url" id="s4-u1">mail.google.com</span></div><div class="viewport">
+<div class="shot" id="s4-sh0" style="left:0;top:0;width:1536px;height:639px"><div class="zoomer" id="s4-sh0-z" style="left:0px;top:0px;width:1536px;height:639px"><img src="assets/shots/check-email.png" width="1536" height="639" alt="">
+<div class="ring" id="s4-sh0-r0" style="left:570px;top:114px;width:392px;height:204px"></div>
+</div></div>
+<div class="shot" id="s4-sh1" style="left:0;top:0;width:1536px;height:639px"><div class="zoomer" id="s4-sh1-z" style="left:402px;top:8px;width:732px;height:622px"><img src="assets/shots/email.png" width="732" height="622" alt="">
+<div class="ring" id="s4-sh1-r0" style="left:270px;top:321px;width:194px;height:72px"></div>
+</div></div>
+</div></div>
+<div class="caption" id="s4-cap"><span>ایمیل تأیید برایتان فرستاده می‌شود. لینک داخل آن را باز کنید تا حسابتان تأیید شود.</span></div>
+<div class="prog"><b id="s4-prog"></b></div>
+<div class="shade" id="s4-shade"></div>
+</div></section>
+<section id="s5" class="clip scene" data-start="25.0" data-duration="8.0" style="z-index:96">
+<div class="page" id="s5-page">
+<div class="hdr"><div class="brand"><img src="assets/logo.png" alt=""><span>دیوان</span></div>
+<div class="stepno">قدم ۴ از ۹</div>
+</div>
+<div class="card" id="s5-card"><div class="bar"><i></i><i></i><i></i><span class="url" id="s5-u0">diwan.center/onboarding</span></div><div class="viewport">
+<div class="shot" id="s5-sh0" style="left:0;top:0;width:1536px;height:639px"><div class="zoomer" id="s5-sh0-z" style="left:0px;top:0px;width:1536px;height:639px"><img src="assets/shots/onboarding.jpg" width="1536" height="639" alt="">
+<div class="ring" id="s5-sh0-r0" style="left:594px;top:259px;width:346px;height:43px"></div>
+<div class="ring" id="s5-sh0-r1" style="left:594px;top:333px;width:346px;height:44px"></div>
+</div></div>
+</div></div>
+<div class="caption" id="s5-cap"><span>حالا نام قلمتان را انتخاب کنید؛ نامی که آثارتان با آن منتشر می‌شود.</span></div>
+<div class="prog"><b id="s5-prog"></b></div>
+<div class="shade" id="s5-shade"></div>
+</div></section>
+<section id="s6" class="clip scene" data-start="32.0" data-duration="10.0" style="z-index:95">
+<div class="page" id="s6-page">
+<div class="hdr"><div class="brand"><img src="assets/logo.png" alt=""><span>دیوان</span></div>
+<div class="stepno">قدم ۵ از ۹</div>
+</div>
+<div class="card" id="s6-card"><div class="bar"><i></i><i></i><i></i><span class="url" id="s6-u0">diwan.center/dashboard</span><span class="url" id="s6-u1">diwan.center/write</span><span class="url" id="s6-u2">diwan.center/write</span></div><div class="viewport">
+<div class="shot" id="s6-sh0" style="left:0;top:0;width:1536px;height:639px"><div class="zoomer" id="s6-sh0-z" style="left:0px;top:0px;width:1536px;height:639px"><img src="assets/shots/dashboard.jpg" width="1536" height="639" alt="">
+<div class="ring" id="s6-sh0-r0" style="left:1325px;top:124px;width:207px;height:45px"></div>
+</div></div>
+<div class="shot" id="s6-sh1" style="left:0;top:0;width:1536px;height:639px"><div class="zoomer" id="s6-sh1-z" style="left:0px;top:0px;width:1536px;height:639px"><img src="assets/shots/write-empty.jpg" width="1536" height="639" alt="">
+<div class="ring" id="s6-sh1-r0" style="left:455px;top:553px;width:406px;height:66px"></div>
+</div></div>
+<div class="shot" id="s6-sh2" style="left:0;top:0;width:1536px;height:639px"><div class="zoomer" id="s6-sh2-z" style="left:0px;top:0px;width:1536px;height:639px"><img src="assets/shots/write-type.jpg" width="1536" height="639" alt="">
+<div class="ring" id="s6-sh2-r0" style="left:689px;top:523px;width:144px;height:33px"></div>
+</div></div>
+</div></div>
+<div class="caption" id="s6-cap"><span>از داشبورد وارد «نوشتن» شوید و نوع اثر را انتخاب کنید؛ شعر، داستان کوتاه یا رمان.</span></div>
+<div class="prog"><b id="s6-prog"></b></div>
+<div class="shade" id="s6-shade"></div>
+</div></section>
+<section id="s7" class="clip scene" data-start="41.0" data-duration="10.0" style="z-index:94">
+<div class="page" id="s7-page">
+<div class="hdr"><div class="brand"><img src="assets/logo.png" alt=""><span>دیوان</span></div>
+<div class="stepno">قدم ۶ از ۹</div>
+</div>
+<div class="card" id="s7-card"><div class="bar"><i></i><i></i><i></i><span class="url" id="s7-u0">diwan.center/write</span><span class="url" id="s7-u1">diwan.center/write</span></div><div class="viewport">
+<div class="shot" id="s7-sh0" style="left:0;top:0;width:1536px;height:639px"><div class="zoomer" id="s7-sh0-z" style="left:0px;top:0px;width:1536px;height:639px"><img src="assets/shots/write-empty.jpg" width="1536" height="639" alt="">
+<div class="ring" id="s7-sh0-r0" style="left:80px;top:213px;width:1160px;height:61px"></div>
+<div class="ring" id="s7-sh0-r1" style="left:1148px;top:312px;width:84px;height:28px"></div>
+</div></div>
+<div class="shot" id="s7-sh1" style="left:0;top:0;width:1536px;height:639px"><div class="zoomer" id="s7-sh1-z" style="left:0px;top:0px;width:1536px;height:639px"><img src="assets/shots/write-text.jpg" width="1536" height="639" alt="">
+<div class="ring" id="s7-sh1-r0" style="left:784px;top:572px;width:80px;height:26px"></div>
+</div></div>
+</div></div>
+<div class="caption" id="s7-cap"><span>عنوان را بنویسید و متنتان را تایپ کنید، یا فایل داستان را همین‌جا بارگذاری کنید.</span></div>
+<div class="prog"><b id="s7-prog"></b></div>
+<div class="shade" id="s7-shade"></div>
+</div></section>
+<section id="s8" class="clip scene" data-start="50.0" data-duration="7.0" style="z-index:93">
+<div class="page" id="s8-page">
+<div class="hdr"><div class="brand"><img src="assets/logo.png" alt=""><span>دیوان</span></div>
+<div class="stepno">قدم ۷ از ۹</div>
+</div>
+<div class="card" id="s8-card"><div class="bar"><i></i><i></i><i></i><span class="url" id="s8-u0">diwan.center/write</span><span class="url" id="s8-u1">diwan.center/write</span></div><div class="viewport">
+<div class="shot" id="s8-sh0" style="left:0;top:0;width:1536px;height:639px"><div class="zoomer" id="s8-sh0-z" style="left:0px;top:0px;width:1536px;height:639px"><img src="assets/shots/write-empty.jpg" width="1536" height="639" alt="">
+<div class="ring" id="s8-sh0-r0" style="left:80px;top:44px;width:1160px;height:144px"></div>
+</div></div>
+<div class="shot" id="s8-sh1" style="left:0;top:0;width:1536px;height:639px"><div class="zoomer" id="s8-sh1-z" style="left:0px;top:0px;width:1536px;height:639px"><img src="assets/shots/write-cover.jpg" width="1536" height="639" alt="">
+</div></div>
+</div></div>
+<div class="caption" id="s8-cap"><span>اگر خواستید، برای اثرتان تصویر جلد بگذارید.</span></div>
+<div class="prog"><b id="s8-prog"></b></div>
+<div class="shade" id="s8-shade"></div>
+</div></section>
+<section id="s9" class="clip scene" data-start="56.0" data-duration="6.0" style="z-index:92">
+<div class="page" id="s9-page">
+<div class="hdr"><div class="brand"><img src="assets/logo.png" alt=""><span>دیوان</span></div>
+<div class="stepno">قدم ۸ از ۹</div>
+</div>
+<div class="card" id="s9-card"><div class="bar"><i></i><i></i><i></i><span class="url" id="s9-u0">diwan.center/write</span></div><div class="viewport">
+<div class="shot" id="s9-sh0" style="left:0;top:0;width:1536px;height:639px"><div class="zoomer" id="s9-sh0-z" style="left:0px;top:0px;width:1536px;height:639px"><img src="assets/shots/write-text.jpg" width="1536" height="639" alt="">
+<div class="ring" id="s9-sh0-r0" style="left:456px;top:568px;width:64px;height:36px"></div>
+</div></div>
+</div></div>
+<div class="caption" id="s9-cap"><span>و وقتی آماده بود، «انتشار» را بزنید.</span></div>
+<div class="prog"><b id="s9-prog"></b></div>
+<div class="shade" id="s9-shade"></div>
+</div></section>
+<section id="s10" class="clip scene" data-start="61.0" data-duration="13.0" style="z-index:91">
+<div class="page" id="s10-page">
+<div class="hdr"><div class="brand"><img src="assets/logo.png" alt=""><span>دیوان</span></div>
+<div class="stepno">قدم ۹ از ۹</div>
+</div>
+<div class="card" id="s10-card"><div class="bar"><i></i><i></i><i></i><span class="url" id="s10-u0">diwan.center/write</span><span class="url" id="s10-u1">diwan.center/u/mahdi/تشنه‌ی-سراب</span></div><div class="viewport">
+<div class="shot" id="s10-sh0" style="left:0;top:0;width:1536px;height:639px"><div class="zoomer" id="s10-sh0-z" style="left:0px;top:0px;width:1536px;height:639px"><img src="assets/shots/published-editor.jpg" width="1536" height="639" alt="">
+<div class="ring" id="s10-sh0-r0" style="left:1098px;top:44px;width:72px;height:28px"></div>
+</div></div>
+<div class="shot" id="s10-sh1" style="left:0;top:0;width:1536px;height:639px"><div class="zoomer" id="s10-sh1-z" style="left:0px;top:0px;width:1536px;height:639px"><img src="assets/shots/published-page.jpg" width="1536" height="639" alt="">
+<div class="ring" id="s10-sh1-r0" style="left:722px;top:568px;width:48px;height:44px"></div>
+</div></div>
+</div></div>
+<div class="caption" id="s10-cap"><span>اثر شما حالا صفحه‌ی دائمی خودش را دارد. برای دیگران بفرستید تا بخوانند و نقدش کنند، یا اگر خواستید، خروجی PDF بگیرید.</span></div>
+<div class="prog"><b id="s10-prog"></b></div>
+<div class="shade" id="s10-shade"></div>
+</div></section>
+<section id="s11" class="clip scene" data-start="73.0" data-duration="7.0" style="z-index:90">
+<div class="page" id="s11-page">
+<div class="hdr"><div class="brand"><img src="assets/logo.png" alt=""><span>دیوان</span></div>
+</div>
+<div class="titlecard"><img class="biglogo" src="assets/logo.png" alt=""><h1 class="url">diwan.center</h1><h2>اینجا برای همه‌ جا هست</h2></div>
+<div class="caption" id="s11-cap"><span>داستانتان را بنویسید و در دیوان منتشر کنید. اینجا برای همه‌ی نوشته‌ها جا هست.</span></div>
+<div class="prog"><b id="s11-prog"></b></div>
+<div class="shade" id="s11-shade"></div>
+</div></section>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+// scene 1
+tl.fromTo("#s1-cap", {opacity:0,y:26}, {opacity:1,y:0,duration:0.6,ease:"power2.out"}, 0.4);
+tl.fromTo("#s1-prog", {width:"0.00%"}, {width:"9.09%",duration:5.0,ease:"none"}, 0.0);
+tl.fromTo("#s1 .biglogo", {opacity:0,y:30,scale:0.94}, {opacity:1,y:0,scale:1,duration:0.9,ease:"power3.out"}, 0.1);
+tl.fromTo("#s1 h1", {opacity:0,y:30}, {opacity:1,y:0,duration:0.8,ease:"power3.out"}, 0.5);
+tl.fromTo("#s1 h2", {opacity:0,y:24}, {opacity:1,y:0,duration:0.8,ease:"power3.out"}, 0.9);
+tl.set("#s1-page", {transformOrigin:"100% 50%",transformPerspective:2400}, 0);
+tl.to("#s1-page", {rotationY:92,duration:1.0,ease:"power2.in"}, 5.0);
+tl.fromTo("#s1-shade", {opacity:0}, {opacity:0.55,duration:1.0,ease:"power2.in"}, 5.0);
+// scene 2
+tl.fromTo("#s2-cap", {opacity:0,y:26}, {opacity:1,y:0,duration:0.6,ease:"power2.out"}, 5.4);
+tl.fromTo("#s2-prog", {width:"9.09%"}, {width:"18.18%",duration:5.0,ease:"none"}, 5.0);
+tl.fromTo("#s2-card", {opacity:0,y:30}, {opacity:1,y:0,duration:0.7,ease:"power3.out"}, 5.05);
+tl.fromTo("#s2-sh0-r0", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 6.2);
+tl.set("#s2-sh0-z", {transformOrigin:"1235px 511px"}, 0);
+tl.to("#s2-sh0-z", {scale:1.7,duration:1.3,ease:"power2.inOut"}, 6.5);
+tl.set("#s2-page", {transformOrigin:"100% 50%",transformPerspective:2400}, 0);
+tl.to("#s2-page", {rotationY:92,duration:1.0,ease:"power2.in"}, 10.0);
+tl.fromTo("#s2-shade", {opacity:0}, {opacity:0.55,duration:1.0,ease:"power2.in"}, 10.0);
+// scene 3
+tl.fromTo("#s3-cap", {opacity:0,y:26}, {opacity:1,y:0,duration:0.6,ease:"power2.out"}, 10.4);
+tl.fromTo("#s3-prog", {width:"18.18%"}, {width:"27.27%",duration:6.5,ease:"none"}, 10.0);
+tl.fromTo("#s3-card", {opacity:0,y:30}, {opacity:1,y:0,duration:0.7,ease:"power3.out"}, 10.05);
+tl.fromTo("#s3-sh0-r0", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 11.0);
+tl.to("#s3-sh0-r0", {opacity:0,duration:0.35}, 12.4);
+tl.fromTo("#s3-sh0-r1", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 12.5);
+tl.to("#s3-sh0-r1", {opacity:0,duration:0.35}, 14.0);
+tl.fromTo("#s3-sh0-r2", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 14.1);
+tl.set("#s3-sh0-z", {transformOrigin:"766px 300px"}, 0);
+tl.to("#s3-sh0-z", {scale:1.55,duration:1.3,ease:"power2.inOut"}, 10.5);
+tl.set("#s3-page", {transformOrigin:"100% 50%",transformPerspective:2400}, 0);
+tl.to("#s3-page", {rotationY:92,duration:1.0,ease:"power2.in"}, 16.5);
+tl.fromTo("#s3-shade", {opacity:0}, {opacity:0.55,duration:1.0,ease:"power2.in"}, 16.5);
+// scene 4
+tl.fromTo("#s4-cap", {opacity:0,y:26}, {opacity:1,y:0,duration:0.6,ease:"power2.out"}, 16.9);
+tl.fromTo("#s4-prog", {width:"27.27%"}, {width:"36.36%",duration:8.5,ease:"none"}, 16.5);
+tl.fromTo("#s4-card", {opacity:0,y:30}, {opacity:1,y:0,duration:0.7,ease:"power3.out"}, 16.55);
+tl.fromTo("#s4-sh0-r0", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 17.5);
+tl.to("#s4-sh0-r0", {opacity:0,duration:0.3}, 20.3);
+tl.set("#s4-sh1", {opacity:0}, 0);
+tl.set("#s4-u1", {opacity:0}, 0);
+tl.to("#s4-u1", {opacity:1,duration:0.7}, 20.5);
+tl.to("#s4-u0", {opacity:0,duration:0.7}, 20.5);
+tl.to("#s4-sh1", {opacity:1,duration:0.7,ease:"power1.inOut"}, 20.5);
+tl.fromTo("#s4-sh1-r0", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 21.9);
+tl.set("#s4-page", {transformOrigin:"100% 50%",transformPerspective:2400}, 0);
+tl.to("#s4-page", {rotationY:92,duration:1.0,ease:"power2.in"}, 25.0);
+tl.fromTo("#s4-shade", {opacity:0}, {opacity:0.55,duration:1.0,ease:"power2.in"}, 25.0);
+// scene 5
+tl.fromTo("#s5-cap", {opacity:0,y:26}, {opacity:1,y:0,duration:0.6,ease:"power2.out"}, 25.4);
+tl.fromTo("#s5-prog", {width:"36.36%"}, {width:"45.45%",duration:7.0,ease:"none"}, 25.0);
+tl.fromTo("#s5-card", {opacity:0,y:30}, {opacity:1,y:0,duration:0.7,ease:"power3.out"}, 25.05);
+tl.fromTo("#s5-sh0-r0", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 26.2);
+tl.to("#s5-sh0-r0", {opacity:0,duration:0.35}, 28.7);
+tl.fromTo("#s5-sh0-r1", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 28.8);
+tl.set("#s5-sh0-z", {transformOrigin:"766px 320px"}, 0);
+tl.to("#s5-sh0-z", {scale:1.5,duration:1.3,ease:"power2.inOut"}, 25.5);
+tl.set("#s5-page", {transformOrigin:"100% 50%",transformPerspective:2400}, 0);
+tl.to("#s5-page", {rotationY:92,duration:1.0,ease:"power2.in"}, 32.0);
+tl.fromTo("#s5-shade", {opacity:0}, {opacity:0.55,duration:1.0,ease:"power2.in"}, 32.0);
+// scene 6
+tl.fromTo("#s6-cap", {opacity:0,y:26}, {opacity:1,y:0,duration:0.6,ease:"power2.out"}, 32.4);
+tl.fromTo("#s6-prog", {width:"45.45%"}, {width:"54.55%",duration:9.0,ease:"none"}, 32.0);
+tl.fromTo("#s6-card", {opacity:0,y:30}, {opacity:1,y:0,duration:0.7,ease:"power3.out"}, 32.05);
+tl.fromTo("#s6-sh0-r0", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 33.0);
+tl.to("#s6-sh0-r0", {opacity:0,duration:0.3}, 35.0);
+tl.set("#s6-sh0-z", {transformOrigin:"1430px 146px"}, 0);
+tl.to("#s6-sh0-z", {scale:1.6,duration:1.3,ease:"power2.inOut"}, 32.6);
+tl.set("#s6-sh1", {opacity:0}, 0);
+tl.set("#s6-u1", {opacity:0}, 0);
+tl.to("#s6-u1", {opacity:1,duration:0.5}, 35.2);
+tl.to("#s6-u0", {opacity:0,duration:0.5}, 35.2);
+tl.to("#s6-sh1", {opacity:1,duration:0.5,ease:"power1.inOut"}, 35.2);
+tl.fromTo("#s6-sh1-r0", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 36.0);
+tl.to("#s6-sh1-r0", {opacity:0,duration:0.3}, 37.599999999999994);
+tl.set("#s6-sh2", {opacity:0}, 0);
+tl.set("#s6-u2", {opacity:0}, 0);
+tl.to("#s6-u2", {opacity:1,duration:0.5}, 37.8);
+tl.to("#s6-u1", {opacity:0,duration:0.5}, 37.8);
+tl.to("#s6-sh2", {opacity:1,duration:0.5,ease:"power1.inOut"}, 37.8);
+tl.fromTo("#s6-sh2-r0", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 38.6);
+tl.set("#s6-sh2-z", {transformOrigin:"760px 540px"}, 0);
+tl.to("#s6-sh2-z", {scale:1.7,duration:1.3,ease:"power2.inOut"}, 38.2);
+tl.set("#s6-page", {transformOrigin:"100% 50%",transformPerspective:2400}, 0);
+tl.to("#s6-page", {rotationY:92,duration:1.0,ease:"power2.in"}, 41.0);
+tl.fromTo("#s6-shade", {opacity:0}, {opacity:0.55,duration:1.0,ease:"power2.in"}, 41.0);
+// scene 7
+tl.fromTo("#s7-cap", {opacity:0,y:26}, {opacity:1,y:0,duration:0.6,ease:"power2.out"}, 41.4);
+tl.fromTo("#s7-prog", {width:"54.55%"}, {width:"63.64%",duration:9.0,ease:"none"}, 41.0);
+tl.fromTo("#s7-card", {opacity:0,y:30}, {opacity:1,y:0,duration:0.7,ease:"power3.out"}, 41.05);
+tl.fromTo("#s7-sh0-r0", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 42.0);
+tl.to("#s7-sh0-r0", {opacity:0,duration:0.35}, 44.1);
+tl.fromTo("#s7-sh0-r1", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 44.2);
+tl.to("#s7-sh0-r1", {opacity:0,duration:0.3}, 46.4);
+tl.set("#s7-sh0-z", {transformOrigin:"1190px 326px"}, 0);
+tl.to("#s7-sh0-z", {scale:2.0,duration:1.3,ease:"power2.inOut"}, 43.9);
+tl.set("#s7-sh1", {opacity:0}, 0);
+tl.set("#s7-u1", {opacity:0}, 0);
+tl.to("#s7-u1", {opacity:1,duration:0.6}, 46.6);
+tl.to("#s7-u0", {opacity:0,duration:0.6}, 46.6);
+tl.to("#s7-sh1", {opacity:1,duration:0.6,ease:"power1.inOut"}, 46.6);
+tl.fromTo("#s7-sh1-r0", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 47.8);
+tl.set("#s7-page", {transformOrigin:"100% 50%",transformPerspective:2400}, 0);
+tl.to("#s7-page", {rotationY:92,duration:1.0,ease:"power2.in"}, 50.0);
+tl.fromTo("#s7-shade", {opacity:0}, {opacity:0.55,duration:1.0,ease:"power2.in"}, 50.0);
+// scene 8
+tl.fromTo("#s8-cap", {opacity:0,y:26}, {opacity:1,y:0,duration:0.6,ease:"power2.out"}, 50.4);
+tl.fromTo("#s8-prog", {width:"63.64%"}, {width:"72.73%",duration:6.0,ease:"none"}, 50.0);
+tl.fromTo("#s8-card", {opacity:0,y:30}, {opacity:1,y:0,duration:0.7,ease:"power3.out"}, 50.05);
+tl.fromTo("#s8-sh0-r0", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 50.9);
+tl.to("#s8-sh0-r0", {opacity:0,duration:0.3}, 52.8);
+tl.set("#s8-sh1", {opacity:0}, 0);
+tl.set("#s8-u1", {opacity:0}, 0);
+tl.to("#s8-u1", {opacity:1,duration:0.8}, 53.0);
+tl.to("#s8-u0", {opacity:0,duration:0.8}, 53.0);
+tl.to("#s8-sh1", {opacity:1,duration:0.8,ease:"power1.inOut"}, 53.0);
+tl.set("#s8-page", {transformOrigin:"100% 50%",transformPerspective:2400}, 0);
+tl.to("#s8-page", {rotationY:92,duration:1.0,ease:"power2.in"}, 56.0);
+tl.fromTo("#s8-shade", {opacity:0}, {opacity:0.55,duration:1.0,ease:"power2.in"}, 56.0);
+// scene 9
+tl.fromTo("#s9-cap", {opacity:0,y:26}, {opacity:1,y:0,duration:0.6,ease:"power2.out"}, 56.4);
+tl.fromTo("#s9-prog", {width:"72.73%"}, {width:"81.82%",duration:5.0,ease:"none"}, 56.0);
+tl.fromTo("#s9-card", {opacity:0,y:30}, {opacity:1,y:0,duration:0.7,ease:"power3.out"}, 56.05);
+tl.fromTo("#s9-sh0-r0", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 57.0);
+tl.set("#s9-sh0-z", {transformOrigin:"488px 586px"}, 0);
+tl.to("#s9-sh0-z", {scale:2.3,duration:1.3,ease:"power2.inOut"}, 56.7);
+tl.set("#s9-page", {transformOrigin:"100% 50%",transformPerspective:2400}, 0);
+tl.to("#s9-page", {rotationY:92,duration:1.0,ease:"power2.in"}, 61.0);
+tl.fromTo("#s9-shade", {opacity:0}, {opacity:0.55,duration:1.0,ease:"power2.in"}, 61.0);
+// scene 10
+tl.fromTo("#s10-cap", {opacity:0,y:26}, {opacity:1,y:0,duration:0.6,ease:"power2.out"}, 61.4);
+tl.fromTo("#s10-prog", {width:"81.82%"}, {width:"90.91%",duration:12.0,ease:"none"}, 61.0);
+tl.fromTo("#s10-card", {opacity:0,y:30}, {opacity:1,y:0,duration:0.7,ease:"power3.out"}, 61.05);
+tl.fromTo("#s10-sh0-r0", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 62.0);
+tl.to("#s10-sh0-r0", {opacity:0,duration:0.3}, 65.0);
+tl.set("#s10-sh0-z", {transformOrigin:"1134px 58px"}, 0);
+tl.to("#s10-sh0-z", {scale:2.2,duration:1.3,ease:"power2.inOut"}, 61.7);
+tl.set("#s10-sh1", {opacity:0}, 0);
+tl.set("#s10-u1", {opacity:0}, 0);
+tl.to("#s10-u1", {opacity:1,duration:0.7}, 65.2);
+tl.to("#s10-u0", {opacity:0,duration:0.7}, 65.2);
+tl.to("#s10-sh1", {opacity:1,duration:0.7,ease:"power1.inOut"}, 65.2);
+tl.fromTo("#s10-sh1-r0", {opacity:0,scale:1.25}, {opacity:1,scale:1,duration:0.45,ease:"back.out(2)"}, 68.4);
+tl.set("#s10-sh1-z", {transformOrigin:"745px 590px"}, 0);
+tl.to("#s10-sh1-z", {scale:2.0,duration:1.3,ease:"power2.inOut"}, 68.0);
+tl.set("#s10-page", {transformOrigin:"100% 50%",transformPerspective:2400}, 0);
+tl.to("#s10-page", {rotationY:92,duration:1.0,ease:"power2.in"}, 73.0);
+tl.fromTo("#s10-shade", {opacity:0}, {opacity:0.55,duration:1.0,ease:"power2.in"}, 73.0);
+// scene 11
+tl.fromTo("#s11-cap", {opacity:0,y:26}, {opacity:1,y:0,duration:0.6,ease:"power2.out"}, 73.4);
+tl.fromTo("#s11-prog", {width:"90.91%"}, {width:"100.00%",duration:7.0,ease:"none"}, 73.0);
+tl.fromTo("#s11 .biglogo", {opacity:0,y:30,scale:0.94}, {opacity:1,y:0,scale:1,duration:0.9,ease:"power3.out"}, 73.1);
+tl.fromTo("#s11 h1", {opacity:0,y:30}, {opacity:1,y:0,duration:0.8,ease:"power3.out"}, 73.5);
+tl.fromTo("#s11 h2", {opacity:0,y:24}, {opacity:1,y:0,duration:0.8,ease:"power3.out"}, 73.9);
+window.__timelines["main"] = tl;
+tl.seek(0);
+</script>
+</body>
+</html>
