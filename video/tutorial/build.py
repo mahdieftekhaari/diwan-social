@@ -101,6 +101,7 @@ TOTAL = round(t, 3)
 
 # ---- html -----------------------------------------------------------------
 parts = []
+audio = []
 tl = []   # js lines
 step_no = 0
 for i, s in enumerate(S):
@@ -180,12 +181,21 @@ for i, s in enumerate(S):
                 ox, oy = zm["origin"]
                 tl.append(f'tl.set("#{shid}-z", {{transformOrigin:"{ox}px {oy}px"}}, 0);')
                 tl.append(f'tl.to("#{shid}-z", {{scale:{zm["scale"]},duration:1.3,ease:"power2.inOut"}}, {T+zm["at"]});')
+    # sfx
+    if s["kind"] in ("title", "end"):
+        audio.append(("chime", T + 0.15, 1.8, 0.7))
+    for j, sh in enumerate(s.get("shots", [])):
+        for r in sh.get("rings", []):
+            audio.append(("tick", T + r["at"], 0.5, 0.35))
     # page turn (outgoing)
     if not last:
         tt = T + s["dur"]
+        audio.append(("flip", tt - 0.05, 1.0, 0.8))
         tl.append(f'tl.set("#{sid}-page", {{transformOrigin:"100% 50%",transformPerspective:2400}}, 0);')
         tl.append(f'tl.to("#{sid}-page", {{rotationY:92,duration:{TURN},ease:"power2.in"}}, {tt});')
         tl.append(f'tl.fromTo("#{sid}-shade", {{opacity:0}}, {{opacity:0.55,duration:{TURN},ease:"power2.in"}}, {tt});')
+
+AUDIO = "\n".join(f'<audio id="sfx{n}" src="assets/sfx/{nm}.wav" data-start="{round(st,3)}" data-duration="{du}" data-volume="{vol}"></audio>' for n, (nm, st, du, vol) in enumerate(audio))
 
 html = f'''<!doctype html>
 <html lang="fa" dir="rtl">
@@ -241,6 +251,7 @@ html, body {{ width:{W}px; height:{H}px; overflow:hidden; background:var(--paper
 <body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="{TOTAL}" data-width="{W}" data-height="{H}">
 {chr(10).join(parts)}
+{AUDIO}
 </div>
 <script>
 const tl = gsap.timeline({{ paused: true }});
