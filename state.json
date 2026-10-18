@@ -67,6 +67,10 @@
     "x": {
       "bufferId": "6ad50e530a208cb323788fa7",
       "status": "sent"
+    },
+    "tg": {
+      "messageId": 9,
+      "at": "2026-10-18T21:09:25.628Z"
     }
   }
 }
