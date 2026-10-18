@@ -29,8 +29,18 @@ async function sendTelegram(p) {
   fd.set("chat_id", TELEGRAM_CHAT_ID);
   fd.set("caption", tgHtml(p.tg.caption));
   fd.set("parse_mode", "HTML");
-  fd.set("photo", new Blob([await readFile(p.tg.image)], { type: "image/png" }), "post.png");
-  const r = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, { method: "POST", body: fd });
+  let method = "sendPhoto";
+  if (p.tg.video) {
+    method = "sendVideo";
+    fd.set("video", new Blob([await readFile(p.tg.video)], { type: "video/mp4" }), "post.mp4");
+    fd.set("supports_streaming", "true");
+    if (p.tg.width) fd.set("width", String(p.tg.width));
+    if (p.tg.height) fd.set("height", String(p.tg.height));
+    if (p.tg.image) fd.set("thumbnail", new Blob([await readFile(p.tg.image)], { type: "image/jpeg" }), "thumb.jpg");
+  } else {
+    fd.set("photo", new Blob([await readFile(p.tg.image)], { type: "image/png" }), "post.png");
+  }
+  const r = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/${method}`, { method: "POST", body: fd });
   const j = await r.json();
   if (!j.ok) throw new Error(j.description || r.status);
   return { messageId: j.result.message_id, at: new Date().toISOString() };
@@ -49,13 +59,15 @@ async function scheduleBuffer(p, key) {
   const input = {
     channelId: schedule.channels[key],
     text: v.caption,
-    assets: [{ image: { url: `${IMAGE_BASE_URL.replace(/\/$/, "")}/${v.image}` } }],
+    assets: [v.video
+      ? { video: { url: `${IMAGE_BASE_URL.replace(/\/$/, "")}/${v.video}`, ...(v.image ? { thumbnailUrl: `${IMAGE_BASE_URL.replace(/\/$/, "")}/${v.image}` } : {}) } }
+      : { image: { url: `${IMAGE_BASE_URL.replace(/\/$/, "")}/${v.image}` } }],
     mode: "customScheduled",
     schedulingType: "automatic",
     dueAt: new Date(p.when).toISOString(),
     saveToDraft: false,
   };
-  if (key === "ig") input.metadata = { instagram: { type: "post", shouldShareToFeed: true } };
+  if (key === "ig") input.metadata = { instagram: { type: v.video ? "reel" : "post", shouldShareToFeed: true } };
   const r = await fetch(BUFFER_API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${BUFFER_API_KEY}` },
