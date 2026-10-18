@@ -92,7 +92,27 @@ NSTEP = sum(1 for s in S if s["kind"] == "step")
 PERSIAN = "۰۱۲۳۴۵۶۷۸۹"
 def fa(n): return "".join(PERSIAN[int(c)] for c in str(n))
 
-# ---- timing ---------------------------------------------------------------
+# ---- voice-driven timing -------------------------------------------------
+import os
+VM = "assets/voice/meta.json"
+LEAD, TAIL = 1.0, 0.5
+VOICE = []
+if os.path.exists(VM):
+    meta = json.load(open(VM))
+    for i, sc in enumerate(S):
+        vd = float(meta[str(i + 1)])
+        lead = 0.7 if i == 0 else LEAD
+        tail = 1.5 if sc["kind"] == "end" else TAIL
+        newd = round(lead + vd + tail, 3)
+        f = newd / sc["dur"]
+        for sh in sc.get("shots", []):
+            sh["at"] = round(sh["at"] * f, 3)
+            for r in sh.get("rings", []): r["at"] = round(r["at"] * f, 3)
+            if sh.get("zoom"): sh["zoom"]["at"] = round(sh["zoom"]["at"] * f, 3)
+        sc["dur"] = newd
+        sc["lead"] = lead
+        sc["vd"] = vd
+
 t = 0.0
 for s in S:
     s["T"] = t
@@ -113,7 +133,7 @@ for i, s in enumerate(S):
     h = [f'<section id="{sid}" class="clip scene" data-start="{T}" data-duration="{d}" style="z-index:{z}">',
          f'<div class="page" id="{sid}-page">']
     # header
-    h.append('<div class="hdr"><div class="brand"><img src="assets/logo.png" alt=""><span>دیوان</span></div>')
+    h.append('<div class="hdr"><div class="brand" data-layout-allow-overlap><img src="assets/logo.png" alt=""><span>دیوان</span></div>')
     if s["kind"] == "step":
         step_no += 1
         h.append(f'<div class="stepno">قدم {fa(step_no)} از {fa(NSTEP)}</div>')
@@ -181,6 +201,9 @@ for i, s in enumerate(S):
                 ox, oy = zm["origin"]
                 tl.append(f'tl.set("#{shid}-z", {{transformOrigin:"{ox}px {oy}px"}}, 0);')
                 tl.append(f'tl.to("#{shid}-z", {{scale:{zm["scale"]},duration:1.3,ease:"power2.inOut"}}, {T+zm["at"]});')
+    # voice
+    if "vd" in s:
+        audio.append((f"voice:L{i+1:02d}", T + s["lead"], s["vd"], 1.0))
     # sfx
     if s["kind"] in ("title", "end"):
         audio.append(("chime", T + 0.15, 1.8, 0.7))
@@ -195,7 +218,9 @@ for i, s in enumerate(S):
         tl.append(f'tl.to("#{sid}-page", {{rotationY:92,duration:{TURN},ease:"power2.in"}}, {tt});')
         tl.append(f'tl.fromTo("#{sid}-shade", {{opacity:0}}, {{opacity:0.55,duration:{TURN},ease:"power2.in"}}, {tt});')
 
-AUDIO = "\n".join(f'<audio id="sfx{n}" src="assets/sfx/{nm}.wav" data-start="{round(st,3)}" data-duration="{du}" data-volume="{vol}"></audio>' for n, (nm, st, du, vol) in enumerate(audio))
+def _src(nm):
+    return "assets/voice/" + nm[6:] + ".wav" if nm.startswith("voice:") else "assets/sfx/" + nm + ".wav"
+AUDIO = "\n".join(f'<audio id="a{n}" src="{_src(nm)}" data-start="{round(st,3)}" data-duration="{round(du,3)}" data-volume="{vol}"></audio>' for n, (nm, st, du, vol) in enumerate(audio))
 
 html = f'''<!doctype html>
 <html lang="fa" dir="rtl">
