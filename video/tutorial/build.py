@@ -167,13 +167,18 @@ for i, s in enumerate(S):
 
     # ---- animation
     tl.append(f'// scene {i+1}')
-    tl.append(f'tl.fromTo("#{sid}-cap", {{opacity:0,y:26}}, {{opacity:1,y:0,duration:0.6,ease:"power2.out"}}, {T+0.4});')
+    if i > 0:
+        tl.append(f'tl.fromTo("#{sid}-cap", {{opacity:0,y:26}}, {{opacity:1,y:0,duration:0.6,ease:"power2.out"}}, {T+0.4});')
     pf, pt = i / len(S), (i + 1) / len(S)
     tl.append(f'tl.fromTo("#{sid}-prog", {{width:"{pf*100:.2f}%"}}, {{width:"{pt*100:.2f}%",duration:{s["dur"]},ease:"none"}}, {T});')
     if s["kind"] in ("title", "end"):
-        tl.append(f'tl.fromTo("#{sid} .biglogo", {{opacity:0,y:30,scale:0.94}}, {{opacity:1,y:0,scale:1,duration:0.9,ease:"power3.out"}}, {T+0.1});')
-        tl.append(f'tl.fromTo("#{sid} h1", {{opacity:0,y:30}}, {{opacity:1,y:0,duration:0.8,ease:"power3.out"}}, {T+0.5});')
-        tl.append(f'tl.fromTo("#{sid} h2", {{opacity:0,y:24}}, {{opacity:1,y:0,duration:0.8,ease:"power3.out"}}, {T+0.9});')
+        if i == 0:  # first frame is the platform cover: everything visible at t=0
+            tl.append(f'tl.fromTo("#{sid} .biglogo", {{scale:0.97}}, {{scale:1,duration:1.2,ease:"power2.out"}}, 0);')
+            tl.append(f'tl.set("#{sid}-cap", {{opacity:1,y:0}}, 0);')
+        else:
+            tl.append(f'tl.fromTo("#{sid} .biglogo", {{opacity:0,y:30,scale:0.94}}, {{opacity:1,y:0,scale:1,duration:0.9,ease:"power3.out"}}, {T+0.1});')
+            tl.append(f'tl.fromTo("#{sid} h1", {{opacity:0,y:30}}, {{opacity:1,y:0,duration:0.8,ease:"power3.out"}}, {T+0.5});')
+            tl.append(f'tl.fromTo("#{sid} h2", {{opacity:0,y:24}}, {{opacity:1,y:0,duration:0.8,ease:"power3.out"}}, {T+0.9});')
     else:
         tl.append(f'tl.fromTo("#{sid}-card", {{opacity:0,y:30}}, {{opacity:1,y:0,duration:0.7,ease:"power3.out"}}, {T+0.05});')
         for j, sh in enumerate(s["shots"]):
@@ -206,10 +211,8 @@ for i, s in enumerate(S):
         audio.append((f"voice:L{i+1:02d}", T + s["lead"], s["vd"], 1.0))
     # sfx
     if s["kind"] in ("title", "end"):
-        audio.append(("chime", T + 0.15, 1.8, 0.7))
-    for j, sh in enumerate(s.get("shots", [])):
-        for r in sh.get("rings", []):
-            audio.append(("tick", T + r["at"], 0.5, 0.35))
+        # short chime that ends before the voice starts (SFX must never overlap the voice)
+        audio.append(("chime", T + 0.0, min(0.65, s["lead"] - 0.05), 0.7))
     # page turn (outgoing)
     if not last:
         tt = T + s["dur"]
