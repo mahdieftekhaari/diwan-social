@@ -144,7 +144,8 @@ for i, s in enumerate(S):
         else:
             tl.append(f'tl.fromTo("#{sid} .biglogo", {{opacity:0,y:30,scale:0.94}}, {{opacity:1,y:0,scale:1,duration:0.9,ease:"power3.out"}}, {T+0.1});')
             tl.append(f'tl.fromTo("#{sid} h1", {{opacity:0,y:30}}, {{opacity:1,y:0,duration:0.8,ease:"power3.out"}}, {T+0.5});')
-            tl.append(f'tl.fromTo("#{sid} h2", {{opacity:0,y:24}}, {{opacity:1,y:0,duration:0.8,ease:"power3.out"}}, {T+0.9});')
+            if s["kind"] == "title":
+                tl.append(f'tl.fromTo("#{sid} h2", {{opacity:0,y:24}}, {{opacity:1,y:0,duration:0.8,ease:"power3.out"}}, {T+0.9});')
     else:
         if i == 0:
             tl.append(f'tl.set("#{sid}-card", {{opacity:1,y:0}}, 0);')
