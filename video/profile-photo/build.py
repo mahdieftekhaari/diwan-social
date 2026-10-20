@@ -18,7 +18,7 @@ S.append(dict(kind="step", dur=6.0, url="diwan.center",
               caption="دوست داری عکست کنار بقیه‌ی نویسنده‌های دیوان باشد؟ فقط چند ثانیه وقت می‌خواهد.",
               shots=[dict(img="home.jpg", w=1536, h=639, at=0,
                           rings=[dict(rect=[1170, 560, 1320, 600], at=1.2)],
-                          zoom=dict(origin=[1245, 580], scale=1.9, at=1.6))]))
+                          zoom=dict(origin=[1245, 560], scale=1.6, at=1.6))]))
 
 S.append(dict(kind="step", dur=4.0, url="diwan.center/settings",
               caption="وارد حسابت شو و تنظیمات را باز کن.",
@@ -52,7 +52,7 @@ S.append(dict(kind="step", dur=8.0, url="diwan.center",
                           zoom=dict(origin=[1290, 580], scale=2.2, at=4.4))]))
 
 S.append(dict(kind="end", dur=7.0,
-              caption="دیوان، خانه‌ی نوشته‌ها و نویسنده‌ها."))
+              caption="اینجا برای همه‌ جا هست."))
 
 NSTEP = sum(1 for s in S if s["kind"] == "step")
 PERSIAN = "۰۱۲۳۴۵۶۷۸۹"
@@ -110,7 +110,7 @@ for i, s in enumerate(S):
                  '<h1>عکس پروفایل در دیوان</h1><h2>قدم‌به‌قدم</h2></div>')
     elif s["kind"] == "end":
         h.append('<div class="titlecard"><img class="biglogo" src="assets/logo.png" alt="">'
-                 '<h1 class="url">diwan.center</h1><h2>اینجا برای همه‌ جا هست</h2></div>')
+                 '<h1 class="url">diwan.center</h1></div>')
     else:
         h.append(f'<div class="card" id="{sid}-card"><div class="bar"><i></i><i></i><i></i>'
                  + "".join(f'<span class="url" id="{sid}-u{j}">{sh.get("url", s["url"])}</span>' for j, sh in enumerate(s["shots"])) + '</div><div class="viewport">')
