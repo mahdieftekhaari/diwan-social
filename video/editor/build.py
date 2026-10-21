@@ -18,13 +18,13 @@ S.append(dict(kind="title", dur=5.0,
               caption="ادیتور دیوان چه امکاناتی دارد؟ بیا در یک دقیقه با هم ببینیم."))
 
 S.append(dict(kind="step", dur=5.5, url="diwan.center/write",
-              caption="بالای صفحه، تصویر جلد اثرت را بگذار. بعد عنوان را بنویس.",
+              caption="در کادر «تصویر جلد»، تصویر جلد اثرت را بگذار. بعد عنوان را بنویس.",
               shots=[dict(img="write-empty.jpg", w=1536, h=639, at=0,
                           rings=[dict(rect=[84, 48, 1236, 185], at=0.9),
                                  dict(rect=[84, 347, 1236, 401], at=3.3)])]))
 
 S.append(dict(kind="step", dur=4.5, url="diwan.center/write",
-              caption="اگر خواستی، نسخه‌ی صوتی اثرت را هم اضافه کن؛ تا پنجاه مگابایت.",
+              caption="در کادر «نسخه‌ی صوتی»، اگر خواستی می‌توانی نسخه‌ی صوتی اثرت را هم اضافه کنی؛ تا ۵۰ مگابایت.",
               shots=[dict(img="write-empty.jpg", w=1536, h=639, at=0,
                           rings=[dict(rect=[84, 217, 1236, 323], at=1.0)])]))
 
@@ -64,7 +64,7 @@ S.append(dict(kind="step", dur=9.0, url="diwan.center/write",
                                  dict(rect=[470, 560, 860, 612], at=4.2)])]))
 
 S.append(dict(kind="step", dur=10.0, url="diwan.center/write",
-              caption="بعد از ذخیره، می‌توانی آدرس اثر را عوض کنی، نقد را باز یا بسته کنی، هشدار سنی بگذاری، و تاریخچه‌ی نسخه‌ها را ببینی.",
+              caption="بعد از ذخیره، می‌توانی آدرس اثر را عوض کنی، هشدار سنی بگذاری، یا نقد را باز و بسته کنی.",
               shots=[dict(img="edit-top.jpg", w=1536, h=639, at=0,
                           rings=[dict(rect=[84, 117, 1236, 154], at=0.8),
                                  dict(rect=[772, 572, 818, 598], at=3.0)]),
