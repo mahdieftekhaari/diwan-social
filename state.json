@@ -109,6 +109,12 @@
     "tg": {
       "messageId": 12,
       "at": "2026-10-21T17:00:02.285Z"
+    },
+    "ig": {
+      "skipped": "missed window"
+    },
+    "x": {
+      "skipped": "missed window"
     }
   },
   "post08": {}
