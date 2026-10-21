@@ -60,7 +60,7 @@ async function scheduleBuffer(p, key) {
     channelId: schedule.channels[key],
     text: v.caption,
     assets: [v.video
-      ? { video: { url: `${IMAGE_BASE_URL.replace(/\/$/, "")}/${v.video}`, ...(v.image ? { thumbnailUrl: `${IMAGE_BASE_URL.replace(/\/$/, "")}/${v.image}` } : {}) } }
+      ? { video: { url: `${IMAGE_BASE_URL.replace(/\/$/, "")}/${v.video}` } }
       : { image: { url: `${IMAGE_BASE_URL.replace(/\/$/, "")}/${v.image}` } }],
     mode: "customScheduled",
     schedulingType: "automatic",
