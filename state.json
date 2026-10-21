@@ -117,5 +117,16 @@
       "skipped": "missed window"
     }
   },
-  "post08": {}
+  "post08": {
+    "ig": {
+      "bufferId": "6ad902824427b5eda3de9610",
+      "dueAt": "2026-10-22T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "x": {
+      "bufferId": "6ad902827603ae6c59ab25bd",
+      "dueAt": "2026-10-22T17:00:00.000Z",
+      "status": "scheduled"
+    }
+  }
 }
