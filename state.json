@@ -127,6 +127,10 @@
       "bufferId": "6ad902827603ae6c59ab25bd",
       "dueAt": "2026-10-22T17:00:00.000Z",
       "status": "scheduled"
+    },
+    "tg": {
+      "messageId": 13,
+      "at": "2026-10-22T17:00:02.911Z"
     }
   }
 }
