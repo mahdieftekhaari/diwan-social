@@ -132,5 +132,21 @@
       "messageId": 13,
       "at": "2026-10-22T17:00:02.911Z"
     }
+  },
+  "post09": {
+    "ig": {
+      "bufferId": "6adb673d91ffb6bdb088743c",
+      "dueAt": "2026-10-23T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "x": {
+      "bufferId": "6adb673d6fe59a6ed278d835",
+      "dueAt": "2026-10-23T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "tg": {
+      "messageId": 14,
+      "at": "2026-10-23T17:00:01.077Z"
+    }
   }
 }
