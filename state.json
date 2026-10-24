@@ -148,5 +148,12 @@
       "messageId": 14,
       "at": "2026-10-23T17:00:01.077Z"
     }
+  },
+  "post10": {
+    "x": {
+      "bufferId": "6adcdaa7e4be8a4d8669c0f4",
+      "dueAt": "2026-10-25T17:00:00.000Z",
+      "status": "scheduled"
+    }
   }
 }
