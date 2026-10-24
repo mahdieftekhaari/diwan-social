@@ -24,7 +24,30 @@ const fail = (id, p, e) => { failed = true; console.error(`✗ ${id}/${p}: ${e}`
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const tgHtml = (s) => esc(s).replace(/\*\*(.+?)\*\*/gs, "<b>$1</b>");
 
+// A channel entry may carry `images: [...]` (carousel / album) instead of a single `image`.
+const imgList = (v) => (v.images && v.images.length ? v.images : v.image ? [v.image] : []);
+
+async function sendTelegramAlbum(p) {
+  const files = imgList(p.tg);
+  const fd = new FormData();
+  fd.set("chat_id", TELEGRAM_CHAT_ID);
+  const media = [];
+  for (const [i, f] of files.entries()) {
+    const m = { type: "photo", media: `attach://f${i}` };
+    if (i === 0) { m.caption = tgHtml(p.tg.caption); m.parse_mode = "HTML"; }
+    media.push(m);
+    fd.set(`f${i}`, new Blob([await readFile(f)], { type: "image/png" }), `slide${i + 1}.png`);
+  }
+  fd.set("media", JSON.stringify(media));
+  const r = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMediaGroup`, { method: "POST", body: fd });
+  const j = await r.json();
+  if (!j.ok) throw new Error(j.description || r.status);
+  return { messageId: j.result[0].message_id, messageIds: j.result.map((m) => m.message_id), at: new Date().toISOString() };
+}
+
 async function sendTelegram(p) {
+  if (!p.tg.video && imgList(p.tg).length > 1) return sendTelegramAlbum(p);
+  if (p.tg.images && !p.tg.image) p.tg = { ...p.tg, image: p.tg.images[0] };
   const fd = new FormData();
   fd.set("chat_id", TELEGRAM_CHAT_ID);
   fd.set("caption", tgHtml(p.tg.caption));
@@ -56,12 +79,13 @@ const MUTATION = `mutation($input: CreatePostInput!){
 
 async function scheduleBuffer(p, key) {
   const v = p[key];
+  const base = IMAGE_BASE_URL.replace(/\/$/, "");
   const input = {
     channelId: schedule.channels[key],
     text: v.caption,
-    assets: [v.video
-      ? { video: { url: `${IMAGE_BASE_URL.replace(/\/$/, "")}/${v.video}` } }
-      : { image: { url: `${IMAGE_BASE_URL.replace(/\/$/, "")}/${v.image}` } }],
+    assets: v.video
+      ? [{ video: { url: `${base}/${v.video}` } }]
+      : imgList(v).map((f) => ({ image: { url: `${base}/${f}` } })),
     mode: "customScheduled",
     schedulingType: "automatic",
     dueAt: new Date(p.when).toISOString(),
