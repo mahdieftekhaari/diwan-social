@@ -178,6 +178,39 @@
         "image": "posts/post09/x.png",
         "caption": "دیوان را کجاها ببینیم؟\nخانه‌اش diwan.center است.\nاینستاگرام و تلگرام: @diwan_center\nایکس (توییتر): @diwan_pub\n#دیوان #ادبیات_فارسی"
       }
+    },
+    {
+      "id": "post10",
+      "when": "2026-10-25T20:30:00+03:30",
+      "tg": {
+        "images": [
+          "posts/post10/tg01.png",
+          "posts/post10/tg02.png",
+          "posts/post10/tg03.png",
+          "posts/post10/tg04.png",
+          "posts/post10/tg05.png",
+          "posts/post10/tg06.png",
+          "posts/post10/tg07.png",
+          "posts/post10/tg08.png",
+          "posts/post10/tg09.png",
+          "posts/post10/tg10.png",
+          "posts/post10/tg11.png",
+          "posts/post10/tg12.png",
+          "posts/post10/tg13.png",
+          "posts/post10/tg14.png",
+          "posts/post10/tg15.png"
+        ],
+        "caption": "**از دیو تا دیوان**\n\nدو واژه‌ی هم‌آوا با دو ریشه‌ی جدا، که هر دو به نوشتن رسیدند.\n\n«دیو» در اصل «خدا» بود (daēva) و بعد در ایران معنای اهریمنی گرفت؛ در شاهنامه تهمورث دیوها را به بند می‌کشد و آن‌ها نوشتن را می‌آموزند. «دیوان» اما از dipi، واژه‌ی فارسی باستان برای «نوشته»، می‌آید؛ همان ریشه‌ی «دبیر». داستان «دیوان از دیو» را هم ایرانیکا ساخته‌ی خیال می‌داند.\n\nهمه‌ی ماجرا را در آلبوم بخوانید.\n\nمنابع: دایرةالمعارف ایرانیکا (مدخل‌های Divan و Daftar)، شاهنامه‌ی فردوسی (گنجور)\n\ndiwan.center/about\n\n#دیوان #ادبیات_فارسی #شاهنامه #زبان_فارسی"
+      },
+      "x": {
+        "images": [
+          "posts/post10/x01.png",
+          "posts/post10/x04.png",
+          "posts/post10/x10.png",
+          "posts/post10/x15.png"
+        ],
+        "caption": "از دیو تا دیوان\n\n«دیو» در اصل «خدا» بود و «دیوان» از dipi فارسی باستان، به معنای «نوشته»، می‌آید. دو واژه‌ی هم‌آوا، دو ریشه‌ی جدا؛ و شاهنامه آن‌ها را کنار هم می‌گذارد.\n\ndiwan.center/about\n#دیوان #شاهنامه"
+      }
     }
   ]
 }
