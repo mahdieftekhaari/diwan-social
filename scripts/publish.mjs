@@ -27,14 +27,23 @@ const tgHtml = (s) => esc(s).replace(/\*\*(.+?)\*\*/gs, "<b>$1</b>");
 // A channel entry may carry `images: [...]` (carousel / album) instead of a single `image`.
 const imgList = (v) => (v.images && v.images.length ? v.images : v.image ? [v.image] : []);
 
-async function sendTelegramAlbum(p) {
-  const files = imgList(p.tg);
+// Telegram allows 2-10 items per media group; longer lists are sent as consecutive groups
+// (caption on the first group only). A trailing single image is balanced into the previous group.
+function chunkFiles(files, size = 10) {
+  const out = [];
+  for (let i = 0; i < files.length; i += size) out.push(files.slice(i, i + size));
+  const last = out[out.length - 1];
+  if (out.length > 1 && last.length === 1) { last.unshift(out[out.length - 2].pop()); }
+  return out;
+}
+
+async function sendMediaGroup(files, caption) {
   const fd = new FormData();
   fd.set("chat_id", TELEGRAM_CHAT_ID);
   const media = [];
   for (const [i, f] of files.entries()) {
     const m = { type: "photo", media: `attach://f${i}` };
-    if (i === 0) { m.caption = tgHtml(p.tg.caption); m.parse_mode = "HTML"; }
+    if (i === 0 && caption) { m.caption = tgHtml(caption); m.parse_mode = "HTML"; }
     media.push(m);
     fd.set(`f${i}`, new Blob([await readFile(f)], { type: "image/png" }), `slide${i + 1}.png`);
   }
@@ -42,7 +51,15 @@ async function sendTelegramAlbum(p) {
   const r = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMediaGroup`, { method: "POST", body: fd });
   const j = await r.json();
   if (!j.ok) throw new Error(j.description || r.status);
-  return { messageId: j.result[0].message_id, messageIds: j.result.map((m) => m.message_id), at: new Date().toISOString() };
+  return j.result.map((m) => m.message_id);
+}
+
+async function sendTelegramAlbum(p) {
+  const ids = [];
+  for (const [n, group] of chunkFiles(imgList(p.tg)).entries()) {
+    ids.push(...(await sendMediaGroup(group, n === 0 ? p.tg.caption : p.tg.caption2)));
+  }
+  return { messageId: ids[0], messageIds: ids, at: new Date().toISOString() };
 }
 
 async function sendTelegram(p) {
@@ -85,7 +102,7 @@ async function scheduleBuffer(p, key) {
     text: v.caption,
     assets: v.video
       ? [{ video: { url: `${base}/${v.video}` } }]
-      : imgList(v).map((f) => ({ image: { url: `${base}/${f}` } })),
+      : (key === "x" ? imgList(v).slice(0, 4) : imgList(v)).map((f) => ({ image: { url: `${base}/${f}` } })),
     mode: "customScheduled",
     schedulingType: "automatic",
     dueAt: new Date(p.when).toISOString(),
