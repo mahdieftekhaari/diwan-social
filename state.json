@@ -176,5 +176,27 @@
       ],
       "at": "2026-10-25T17:00:08.114Z"
     }
+  },
+  "post11": {
+    "ig": {
+      "bufferId": "6ae09bee6cd613c483284ab9",
+      "dueAt": "2026-10-27T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "x": {
+      "bufferId": "6ae09bee8fa8b2f716dce86b",
+      "dueAt": "2026-10-27T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "tg": {
+      "messageId": 30,
+      "messageIds": [
+        30,
+        31,
+        32,
+        33
+      ],
+      "at": "2026-10-27T17:00:01.734Z"
+    }
   }
 }
