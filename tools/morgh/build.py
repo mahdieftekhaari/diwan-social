@@ -5,6 +5,12 @@ FA=str.maketrans('0123456789','۰۱۲۳۴۵۶۷۸۹')
 def fa(n): return str(n).translate(FA)
 L=lambda s:f'<span dir="ltr" class="lt">{s}</span>'
 SLOT='<div class="slot"></div>'
+COVERBG={
+ 'ig':'background-color:#05070e;background-image:url(../assets/cover_art.jpg);background-size:100% auto;background-position:center top;background-repeat:no-repeat',
+ 'st':'background-color:#05070e;background-image:url(../assets/cover_art.jpg);background-size:100% auto;background-position:center top;background-repeat:no-repeat',
+ 'tg':'background-color:#0a0e22;background-image:url(../assets/cover_art.jpg);background-size:auto 100%;background-position:92% center;background-repeat:no-repeat',
+ 'x':'background-color:#0a0e22;background-image:url(../assets/cover_art.jpg);background-size:auto 100%;background-position:92% center;background-repeat:no-repeat',
+}
 S=[
  dict(k='cover',kicker='پرسه در جهان کلمه',title='مرغ سحر',sub='همه‌مان تصنیف بهار را شنیده‌ایم؛<br>در اجراهای شجریان و حالا همایون.<br>اما مرغ سحر چیست و از کجا آمده؟',slot=True),
  dict(k='text',title='دو شعر، یک پرنده',body='این تصنیف را بهار حدود ۱۳۰۰ خورشیدی سرود.\nاما دهخدا هم شعری دارد با آغازی مشابه\n(صوراسرافیل، ۱۳۲۷ قمری):',slot=True),
@@ -98,7 +104,7 @@ def html(i,s,plat):
     frame='<div class="frame"></div><div class="dia a"></div><div class="dia b"></div><div class="dia c"></div><div class="dia d"></div>'
     def kick(): return ''
     if k=='cover':
-        return f'<div class="slide cover" style="background-image:url(../assets/cover_{plat}.svg);background-position:center 22%"><div class="shade"></div><div class="ct"><div class="kk">{s["kicker"]}</div><h1>{s["title"]}</h1><div class="sub">{s["sub"]}</div>{SLOT if s.get("slot") else ""}</div></div>'
+        return f'<div class="slide cover" style="{COVERBG[plat]}"><div class="shade"></div><div class="ct"><div class="kk">{s["kicker"]}</div><h1>{s["title"]}</h1><div class="sub">{s["sub"]}</div>{SLOT if s.get("slot") else ""}</div></div>'
     inner=''
     if k=='chips':
         inner=f'<h2>{s["title"]}</h2><div class="body">{s["body"]}</div><div class="chips">'+''.join(f'<div class="chip"><div class="w">{w}</div><div class="l">{l}</div></div>' for w,l in s['chips'])+f'</div><div class="note">{s["note"]}</div>'
@@ -144,7 +150,9 @@ def page(i,s,plat):
     # tweak: imgtext on IG uses smaller text sizes
     pv={'ig':'--ap:40px 36px;--ag:22px;--aw:200px;--wkw:100%;--cw:84px','st':'--ap:44px 36px;--ag:26px;--aw:250px;--wkw:100%;--cw:92px','tg':'--ap:22px 40px;--ag:40px;--aw:130px;--wkw:46%;--cw:64px','x':'--ap:26px 50px;--ag:46px;--aw:160px;--wkw:46%;--cw:76px'}[plat]
     extra=':root{'+pv+'}'+('.pg{display:none}' if plat=='st' else '')+'.body{font-size:calc(var(--fb)*1.2)}h2{font-size:calc(var(--ft)*1.12)}'
-    if plat in('tg','x') and s['k']=='cover': extra+='.cover .ct{left:0;right:auto;top:0;width:54%;justify-content:center;padding:0 36px 0 36px}'
+    if plat=='ig' and s['k']=='cover': extra+='.cover .ct{padding-bottom:54px;gap:10px}.cover h1{font-size:92px}.cover .sub{font-size:34px;line-height:1.7}.cover .slot{height:56px;margin:2px auto 0}.cover .shade{display:block;position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(5,7,14,0) 60%,rgba(5,7,14,.88) 70%,#05070e 77%)}'
+    if plat=='st' and s['k']=='cover': extra+='.cover h1{font-size:132px}.cover .sub{font-size:46px;line-height:1.7}.cover .ct{padding-bottom:130px;gap:16px}.cover .slot{height:80px}.cover .shade{display:block;position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(5,7,14,0) 58%,rgba(5,7,14,.9) 68%,#05070e 74%)}'
+    if plat in('tg','x') and s['k']=='cover': extra+='.cover .shade{display:none}.cover .ct{left:0;right:auto;top:0;width:50%;justify-content:center;padding:0 36px 0 36px}'
     if plat=='ig' and s['k'] in('imgtext','imgverse'): extra='.body{font-size:33px;line-height:1.85}h2{font-size:56px}.verse.sm{font-size:37px}.kick{font-size:26px}'
     if plat=='ig' and s['k']=='chain' and len(s['chain'])>3: extra+='.node{padding:8px 20px}.chain{gap:10px}.node .w{font-size:36px}'
     return f'<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><style>{CSS}:root{{{VARS[plat]}}}{extra}</style></head><body>{html(i,s,plat)}</body></html>'
