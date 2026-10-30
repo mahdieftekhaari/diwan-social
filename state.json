@@ -198,5 +198,17 @@
       ],
       "at": "2026-10-27T17:00:01.734Z"
     }
+  },
+  "post12": {
+    "ig": {
+      "bufferId": "6ae4737e98895fbf5a471c33",
+      "dueAt": "2026-10-30T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "x": {
+      "bufferId": "6ae4737ea5e5eb26f126d72b",
+      "dueAt": "2026-10-30T17:00:00.000Z",
+      "status": "scheduled"
+    }
   }
 }
