@@ -14,11 +14,11 @@ COVERBG={
 S=[
  dict(k='cover',kicker='پرسه در جهان کلمه',title='مرغ سحر',sub='همه‌مان تصنیف بهار را شنیده‌ایم؛<br>در اجراهای شجریان و حالا همایون.<br>اما مرغ سحر چیست و از کجا آمده؟',slot=True),
  dict(k='text',title='دو شعر، یک پرنده',body='این تصنیف را بهار حدود ۱۳۰۰ خورشیدی سرود.\nاما دهخدا هم شعری دارد با آغازی مشابه\n(صوراسرافیل، ۱۳۲۷ قمری):',slot=True),
- dict(k='text',title='فقط نمادِ زمانه نبود',body='بین این دو شعر حدود ۱۲ سال فاصله است. شاید فکر کنید در آن فضای پرتنش سیاسی، «مرغ سحر» اسم رمز بوده.\n\nاما ادبیات فارسی، فرهنگ و اساطیر ایران چارچوبی منسجم و درهم‌تنیده است. در گوشه‌گوشه‌ی آثارش می‌شود مرغ سحر، خروس یا شباهنگ را پیدا کرد: از فردوسی و سعدی تا جامی.'),
- dict(k='verse',cap1='نظامی، قرن ششم هجری (حدود ۱۱۴۱ تا ۱۲۰۹ میلادی)',v1=['به غول سیه بانگ برزد خروس','در آمد به غریدن آواز کوس'],cap2='و در جایی دیگر',v2=['برآورد مرغ سحرگه غریو','چو سرسامی از نور و صرعی ز دیو'],src='شرف‌نامه (بخش‌های ۱۶ و ۵۶) · به نقل از گنجور'),
+ dict(k='text',fs=1.0,title='رمز سیاسی یا نماد تاریخی؟',body='بین این دو شعر حدود ۱۲ سال فاصله است. شاید فکر کنید در آن فضای پرتنش سیاسی، «مرغ سحر» اسم رمز بوده.\n\nاما ادبیات فارسی فقط شعر و پند نیست؛ مانند یک دستگاه پیچیده، فرهنگ و اساطیر ایران را در چارچوبی منسجم درهم‌تنیده است. در گوشه‌گوشه‌ی آثارش می‌شود مرغ سحر، خروس یا شباهنگ را پیدا کرد؛ فردوسی، سعدی، جامی و دیگران.'),
+ dict(k='verse',cap1='اما صریح‌ترین اشاره به نظامی برمی‌گردد؛ قرن ششم (حدود ۱۱۴۱ تا ۱۲۰۹ میلادی)',v1=['به غول سیه بانگ برزد خروس','در آمد به غریدن آواز کوس'],cap2='و در جایی دیگر',v2=['برآورد مرغ سحرگه غریو','چو سرسامی از نور و صرعی ز دیو'],src='شرف‌نامه (بخش‌های ۱۶ و ۵۶) · به نقل از گنجور'),
  dict(k='text',title='پرودرش، پیش‌بینِ سپیده‌دم',body='برای این قصه باید عقب‌تر برویم؛ تا اوستا.\n\nدر اوستا خروس «پرودرش» نام دارد: «آن‌که سپیده‌دم را پیش از همه می‌بیند». آخر شب، سروش (فرشته‌ی نیایش و پاسدار شب) او را بیدار می‌کند تا مردم را به برخاستن و نیایش بخواند.',src='منبع: وندیداد، فرگرد ۱۸'),
- dict(k='text',title='دشمنِ خروس',body='بانگ خروس هشدار می‌دهد که «بوشاسپ» (بوشیاسپ)، دیو خواب و سستی، با دست‌های دراز می‌آید تا جهان بیدار را دوباره بخواباند.',src='منبع: وندیداد ۱۸؛ ایرانیکا، مدخل «Cock»'),
- dict(k='close',title='هر واژه قصه‌ای دارد.',body='قصه‌ی خودت را در دیوان بنویس.',final=''),
+ dict(k='text',title='دشمنِ خروس',body='بانگ خروس هشدار می‌دهد که «بوشاسپ» (بوشیاسپ)، دیو خواب و سستی، با دست‌های دراز می‌آید تا جهان بیدار را دوباره بخواباند.',src='منبع: وندیداد'),
+ dict(k='close',title='هر واژه قصه‌ای دارد.',body='تو هم قصه‌هایت را در دیوان بنویس.\nو با «پانویس»، ریشه و منبع واژه‌ها را کنارشان بگذار.',final=''),
 ]
 N=len(S); XS=[1,3,4,5]
 SIZES={'st':(1080,1920),'ig':(1080,1350),'tg':(1280,720),'x':(1600,900)}
@@ -98,7 +98,7 @@ VARS={
 VARS['st']=VARS['ig'].replace('--H:1350px','--H:1920px')
 def foot(i,plat):
     pos,tot=(XS.index(i)+1,len(XS)) if plat=='x' else (i,N)
-    return f'<div class="foot"><span><b>دیوان</b> &nbsp;<span class="lt">diwan.center</span></span><span class="pg">{fa(pos)} / {fa(tot)}</span></div>'
+    return f'<div class="foot"><span><b>دیوان</b> &nbsp;<span class="lt">diwan.center</span></span><span class="pg" dir="ltr">{fa(pos)} / {fa(tot)}</span></div>'
 def html(i,s,plat):
     k=s['k']; W,H=SIZES[plat]; wide=plat!='ig'
     frame='<div class="frame"></div><div class="dia a"></div><div class="dia b"></div><div class="dia c"></div><div class="dia d"></div>'
@@ -109,7 +109,7 @@ def html(i,s,plat):
     if k=='chips':
         inner=f'<h2>{s["title"]}</h2><div class="body">{s["body"]}</div><div class="chips">'+''.join(f'<div class="chip"><div class="w">{w}</div><div class="l">{l}</div></div>' for w,l in s['chips'])+f'</div><div class="note">{s["note"]}</div>'
     elif k=='text':
-        inner=f'<h2>{s["title"]}</h2><div class="body">{s["body"]}</div>'+(SLOT if s.get('slot') else '')+(f'<div class="src">{s["src"]}</div>' if s.get('src') else '')
+        inner=f'<h2>{s["title"]}</h2><div class="body"'+(f' style="font-size:calc(var(--fb)*{s["fs"]});line-height:1.75"' if (s.get('fs') and plat=='ig') else '')+f'>{s["body"]}</div>'+(SLOT if s.get('slot') else '')+(f'<div class="src">{s["src"]}</div>' if s.get('src') else '')
     elif k=='word':
         inner=f'<h2>{s["title"]}</h2><div class="eq">{s["eq"]}</div><div class="body">{s["body"]}</div>'
     elif k=='verse':
