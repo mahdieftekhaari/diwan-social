@@ -53,8 +53,7 @@ h1,h2{font-family:Doran,Vazirmatn,sans-serif;font-weight:800;line-height:1.3;tex
 .verse.sm{font-size:calc(var(--fv)*.82)}
 .vcap{color:#836a27;font-weight:600;font-size:calc(var(--fb)*.85)}
 .src{color:#6b6456;font-size:calc(var(--fb)*.72);text-align:center}
-.slot{width:72%;height:calc(var(--fb)*1.7);border:2px dashed #c9a84c;border-radius:14px;margin:6px auto;opacity:.9}
-.cover .slot{border-color:#e3c46b}
+.slot{width:72%;height:calc(var(--fb)*1.7);margin:6px auto}
 .chips{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
 .chip{border:2px solid #c9a84c;border-radius:14px;padding:10px 26px;text-align:center;background:rgba(201,168,76,.10)}
 .chip .w{font-size:calc(var(--fb)*1.25);font-weight:700;color:#1c1a16;direction:ltr}.chip .l{font-size:calc(var(--fb)*.66);color:#6b6456}
