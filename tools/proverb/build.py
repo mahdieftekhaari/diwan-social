@@ -8,14 +8,16 @@ N=5
 XS=[1,2,4,5]
 K='پرسه در جهان کلمه'
 S=[
- dict(k='text',kicker=K,title='خر ما از کرگی دم نداشت',body='این مثل را همه شنیده‌ایم.\nولی «کرگی» یعنی چه،\nو دم خر چه ربطی به دادگاه دارد؟'),
- dict(k='text',kicker=K,title='«کرگی» یعنی چه؟',body='«کرگی» از «کرگدن» نیست.\nدر لغت‌نامه‌ی دهخدا،\n«کرگی» حالت و سنِ «کره» است،\nیعنی بچه‌اسب و بچه‌خر.\n\nیعنی خرِ ما از بچگی دم نداشت.'),
+ dict(k='text',kicker=K,title='خر ما از کرگی دم نداشت',body='این مثل را همه شنیده‌ایم\nو می‌دانیم یعنی چه.\nاما ماجرای پشت این ضرب‌المثل چیست؟'),
  dict(k='text',kicker=K,title='دیوان بلخ',body='ریشه‌ی مثل در حکایت‌های «دیوان بلخ» است.\n«دیوان» اینجا یعنی دادگاه.\n\n«دیوان بلخ» را به دادگاهی می‌گویند\nکه حکمش با عدالت و منطق نمی‌خواند.'),
- dict(k='text',kicker=K,title='قصه چه بود؟',body='در روایت‌های رایج، مردی در راه دادگاه\nمی‌خواهد به خری کمک کند\nو دم خر کنده می‌شود.\n\nماجرا به دعواهای پشت‌سرهم می‌کشد\nو قاضی حکم‌هایی می‌دهد\nکه عقل را به خنده می‌آورد.'),
+ dict(k='text',kicker=K,title='قصه چه بود؟',body='مردی می‌خواهد به صاحب خری کمک کند\nکه خرش در گل گیر کرده.\nخر آزاد می‌شود، ولی دمش کنده می‌شود.\n\nو این فقط شروع ماجرا بود.'),
+ dict(k='text',kicker=K,title='دعواها باز می‌شود',body='بدشانسی‌های مرد ادامه پیدا می‌کند:\nزنی باردار را هل می‌دهد\nو بچه‌اش سقط می‌شود،\nچشم اسبی را کور می‌کند،\nروی پیرمردی می‌افتد و او می‌میرد.\n\nهر کدام از او شکایت می‌کنند\nو پرونده‌ها به دیوان بلخ می‌رسد.'),
+ dict(k='text',kicker=K,title='حکم‌های قاضی',body='قاضی حکم می‌دهد اسب را از وسط نصف کنند\nو نیمه‌ی کورش را به مرد بدهند.\n\nحکم می‌دهد مرد خرجِ پسر پیرمرد را بدهد،\nبعد زیر همان دیوار بخوابد\nتا پسر از بالای دیوار رویش بپرد.'),
+ dict(k='text',kicker=K,title='چرا چنین حکم‌هایی؟',body='بنا بر روایت‌ها، قاضی فاسد و جاه‌طلب بود\nو دنبال جاه و مال بود، نه حق.\nاز چاپلوسی خوشش می‌آمد\nو مأموران دادگاه از هر مرحله پول می‌گرفتند.\n\nدهخدا می‌نویسد قاضیان بلخ\nبی‌گناه را گناهکار و گناهکار را بی‌گناه می‌کردند.'),
  dict(k='text',kicker=K,title='پایان قصه',body='صاحب خر که حکم‌ها را می‌بیند،\nمی‌ترسد دعوا به زیان خودش تمام شود\nو از شکایتش می‌گذرد:\n\n«خر ما از کرگی دم نداشت!»'),
- dict(k='close',title='امروز یعنی چه؟',body='یعنی از ادعایم می‌گذرم،\nچون می‌ترسم دعوا زیان بزرگ‌تری بیاورد.',final='مثلی که از یک دادگاه ناعادلانه ساخته شد.',),
+ dict(k='close',title='امروز یعنی چه؟',body='یعنی از ادعایم می‌گذرم،\nچون می‌ترسم دعوا زیان بزرگ‌تری بیاورد.',final='مثلی که از یک دادگاه ناعادلانه ساخته شد.',src='منبع: لغت‌نامه‌ی دهخدا (کرگی، دیوان بلخ)، امثال و حکم، کتاب کوچه‌ی شاملو'),
 ]
-N=6; XS=[1,2,3,4]
+N=8; XS=[1,3,5,7]
 assert len(S)==N
 SIZES={'st':(1080,1920),'ig':(1080,1350),'tg':(1280,720),'x':(1600,900)}
 CSS=DORAN+"""
@@ -131,7 +133,7 @@ def html(i,s,plat):
     elif k=='list':
         inner=f'<h2>{s["title"]}</h2><ol class="ol">'+''.join(f'<li><b>{fa(n+1)}</b><span>{t}</span></li>' for n,t in enumerate(s['items']))+'</ol>'
     elif k=='close':
-        inner=f'<h2>{s["title"]}</h2><div class="body">{s["body"]}</div><div class="final">{s["final"]}</div><div class="link">diwan.center</div>'
+        inner=f'<h2>{s["title"]}</h2><div class="body">{s["body"]}</div><div class="final">{s["final"]}</div><div class="link">diwan.center</div>'+(f'<div class="note">{s["src"]}</div>' if s.get('src') else '')
     elif k in('imgtext','imgverse'):
         t=f'<h2>{s["title"]}</h2>'
         if s.get('body'): t+=f'<div class="body">{s["body"]}</div>'
@@ -146,7 +148,7 @@ def html(i,s,plat):
 def page(i,s,plat):
     # tweak: imgtext on IG uses smaller text sizes
     pv={'ig':'--ap:40px 36px;--ag:22px;--aw:200px;--wkw:100%;--cw:84px','st':'--ap:44px 36px;--ag:26px;--aw:250px;--wkw:100%;--cw:92px','tg':'--ap:22px 40px;--ag:40px;--aw:130px;--wkw:46%;--cw:64px','x':'--ap:26px 50px;--ag:46px;--aw:160px;--wkw:46%;--cw:76px'}[plat]
-    extra=':root{'+pv+'}'+('.pg{display:none}' if plat=='st' else '')+'.body{font-size:calc(var(--fb)*1.2)}h2{font-size:calc(var(--ft)*1.12)}'
+    extra=(('.body{line-height:1.65!important}') if plat=='tg' else '')+':root{'+pv+'}'+('.pg{display:none}' if plat=='st' else '')+'.body{font-size:calc(var(--fb)*1.2)}h2{font-size:calc(var(--ft)*1.12)}'
     if plat=='ig' and s['k'] in('imgtext','imgverse'): extra='.body{font-size:33px;line-height:1.85}h2{font-size:56px}.verse.sm{font-size:37px}.kick{font-size:26px}'
     if plat=='ig' and s['k']=='chain' and len(s['chain'])>3: extra+='.node{padding:8px 20px}.chain{gap:10px}.node .w{font-size:36px}'
     return f'<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><style>{CSS}:root{{{VARS[plat]}}}{extra}</style></head><body>{html(i,s,plat)}</body></html>'
