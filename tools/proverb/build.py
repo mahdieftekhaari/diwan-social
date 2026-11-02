@@ -8,7 +8,7 @@ N=5
 XS=[1,2,4,5]
 K='پرسه در جهان کلمه'
 S=[
- dict(k='text',kicker=K,title='خر ما از کرگی دم نداشت',body='این مثل را همه شنیده‌ایم\nو می‌دانیم یعنی چه.\nاما ماجرای پشت این ضرب‌المثل چیست؟'),
+ dict(k='imgtext',kicker=K,img='assets/cover_art.jpg',pos='96%',title='خر ما از کرگی دم نداشت',body='این مثل را همه شنیده‌ایم و می‌دانیم یعنی چه.\nاما ماجرای پشت این ضرب‌المثل چیست؟'),
  dict(k='text',kicker=K,title='دیوان بلخ',body='ریشه‌ی مثل در حکایت‌های «دیوان بلخ» است.\n«دیوان» اینجا یعنی دادگاه.\n\n«دیوان بلخ» را به دادگاهی می‌گویند\nکه حکمش با عدالت و منطق نمی‌خواند.'),
  dict(k='text',kicker=K,title='قصه چه بود؟',body='مردی می‌خواهد به صاحب خری کمک کند\nکه خرش در گل گیر کرده.\nخر آزاد می‌شود، ولی دمش کنده می‌شود.\n\nمرد فرار می‌کند\nو صاحب خر به دنبالش.'),
  dict(k='text',kicker=K,title='حوادث دیگر',body='مرد می‌گریزد و به خانه‌ای می‌پرد:\nزنی باردار می‌ترسد و بچه‌اش سقط می‌شود.\nاز بام می‌پرد و روی پیرمردِ بیماری می‌افتد\nو پیرمرد می‌میرد.\nسر کوچه، چشم رهگذری یهودی کور می‌شود.\n\nهمه شاکی می‌شوند و دنبالش می‌افتند.'),
@@ -137,7 +137,7 @@ def html(i,s,plat):
     elif k=='close':
         inner=f'<h2>{s["title"]}</h2><div class="body">{s["body"]}</div><div class="final">{s["final"]}</div><div class="link">diwan.center</div>'+(f'<div class="note">{s["src"]}</div>' if s.get('src') else '')
     elif k in('imgtext','imgverse'):
-        t=f'<h2>{s["title"]}</h2>'
+        t=(f'<div class="kk2">{s["kicker"]}</div>' if s.get('kicker') else '')+f'<h2>{s["title"]}</h2>'
         if s.get('body'): t+=f'<div class="body">{s["body"]}</div>'
         if s.get('verse'): t+=f'<div class="verse sm">{"<br>".join(s["verse"])}</div><div class="src">{s["src"]}</div>'
         if wide:
