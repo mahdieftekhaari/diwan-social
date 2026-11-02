@@ -8,7 +8,7 @@ N=5
 XS=[1,2,4,5]
 K='پرسه در جهان کلمه'
 S=[
- dict(k='imgtext',kicker=K,img='assets/cover_art.jpg',pos='96%',title='خر ما از کرگی دم نداشت',body='این مثل را همه شنیده‌ایم و می‌دانیم یعنی چه.\nاما ماجرای پشت این ضرب‌المثل چیست؟'),
+ dict(k='imgtext',kicker=K,img='assets/cover_art.jpg',pos='59%',ih=1000,title='خر ما از کرگی دم نداشت',body='این مثل را همه شنیده‌ایم و می‌دانیم یعنی چه.\nاما ماجرای پشت این ضرب‌المثل چیست؟'),
  dict(k='text',kicker=K,title='دیوان بلخ',body='ریشه‌ی مثل در حکایت‌های «دیوان بلخ» است.\n«دیوان» اینجا یعنی دادگاه.\n\n«دیوان بلخ» را به دادگاهی می‌گویند\nکه حکمش با عدالت و منطق نمی‌خواند.'),
  dict(k='text',kicker=K,title='قصه چه بود؟',body='مردی می‌خواهد به صاحب خری کمک کند\nکه خرش در گل گیر کرده.\nخر آزاد می‌شود، ولی دمش کنده می‌شود.\n\nمرد فرار می‌کند\nو صاحب خر به دنبالش.'),
  dict(k='text',kicker=K,title='حوادث دیگر',body='مرد می‌گریزد و به خانه‌ای می‌پرد:\nزنی باردار می‌ترسد و بچه‌اش سقط می‌شود.\nاز بام می‌پرد و روی پیرمردِ بیماری می‌افتد\nو پیرمرد می‌میرد.\nسر کوچه، چشم رهگذری یهودی کور می‌شود.\n\nهمه شاکی می‌شوند و دنبالش می‌افتند.'),
@@ -143,9 +143,9 @@ def html(i,s,plat):
         if wide:
             return f'<div class="slide"><div class="panel" style="--pad:44px 56px 40px">{kick()}<div class="main">{t}</div>{foot(i,plat)}</div><div class="imgp" style="background-image:url(../{s.get("imgw",s["img"])});background-position:{s.get("tpos","50%")} center;{("flex-basis:%dpx"%s["pw"][plat]) if s.get("pw") else ""}"></div></div>'
         # ig: image top, text bottom
-        ih=720
+        ih=s.get('ih',720)
         return (f'<div class="slide" style="flex-direction:column"><div style="height:{ih}px;background-image:url(../{s.get("imgw",s["img"])});background-size:cover;background-position:center {s.get("pos","50%")};border-bottom:3px solid #c9a84c"></div>'
-                f'<div class="panel" style="--pad:34px 90px 54px;--gap:14px">{kick()}<div class="main" style="--gap2:14px">{t}</div>{foot(i,plat)}</div></div>')
+                f'<div class="panel" style="--pad:18px 90px 26px;--gap:10px">{kick()}<div class="main" style="--gap2:14px">{t}</div>{foot(i,plat)}</div></div>')
     return f'<div class="slide">{frame}<div class="panel">{kick()}<div class="main">{inner}</div>{foot(i,plat)}</div></div>'
 def page(i,s,plat):
     # tweak: imgtext on IG uses smaller text sizes
