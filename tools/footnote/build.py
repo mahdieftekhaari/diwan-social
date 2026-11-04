@@ -10,11 +10,13 @@ K='امکانات دیوان'
 S=[
  dict(k='text',kicker=K,title='پانویس',body='واژه، نام یا اشاره‌ای که خواننده نمی‌شناسد،\nحالا همان‌جا توضیح دارد.\n\nنویسنده توضیحش را می‌نویسد،\nخواننده بی‌آن‌که از متن بیرون برود می‌خواند.'),
  dict(k='mock',kicker=K,title='توضیح، همان‌جا',para_a='ریاضی‌دانان از روزگار ',word='فیثاغورس',para_b=' می‌دانستند که کار با عدد، کار با نظم جهان است.',ptitle='فیثاغورس',pbody='فیلسوف و ریاضی‌دان یونانی،\nسدهٔ ششم پیش از میلاد.',plink='دیدن در واژه‌نامه',cap='زیر واژه یک خط نقطه‌چین طلایی می‌بینی.\nنشانگر را روی آن ببر یا لمسش کن.'),
- dict(k='list',title='چطور پانویس بگذاریم؟',items=['در ویرایشگر، واژه یا عبارت را انتخاب کن.','از نوار ابزار «پانویس» را بزن.','عنوان و توضیح کوتاه بنویس؛ تصویر اختیاری است.','تمام. خواننده‌ها زیر آن واژه توضیحت را می‌بینند.']),
+ dict(k='toolbar',title='چطور پانویس بگذاریم؟ ۱',cap='در ویرایشگر، واژه یا عبارت را انتخاب کن\nو از نوار ابزار «پانویس» را بزن.'),
+ dict(k='form',title='چطور پانویس بگذاریم؟ ۲',cap='عنوان و توضیح کوتاه بنویس؛ تصویر اختیاری است.\nیا یکی از پانویس‌های موجود را جستجو کن.'),
  dict(k='text',kicker=K,title='واژه‌نامه‌ی دیوان',body='پانویس‌ها مشترک‌اند.\nهر نویسنده‌ی دیوان می‌تواند یکی بسازد\nو دیگران هم در آثارشان از همان استفاده کنند.\n\nصفحه‌ی «واژه‌نامه» همه‌ی آن‌ها را جمع می‌کند\nو نشان می‌دهد هر کدام در چند اثر آمده.'),
+ dict(k='footer',title='واژه‌نامه را کجا ببینیم؟',cap='از پایین هر صفحه‌ی سایت،\nستون «ساختار»، «واژه‌نامه».'),
  dict(k='close',title='پانویس بعدی مال توست',body='واژه‌ای ناآشنا در نوشته‌ات هست؟\nتوضیحش را همان‌جا بگذار.',final='داستانت را بنویس و منتشر کن.',),
 ]
-N=5; XS=[1,2,3,4]
+N=7; XS=[1,3,4,6]
 assert len(S)==N
 SIZES={'st':(1080,1920),'ig':(1080,1350),'tg':(1280,720),'x':(1600,900)}
 CSS=DORAN+"""
@@ -78,6 +80,19 @@ h1,h2{font-family:Doran,Vazirmatn,sans-serif;font-weight:800;line-height:1.3;tex
 .link{direction:ltr;font-weight:700;letter-spacing:.06em;color:#836a27;font-size:var(--ff2);text-align:center}
 .cover .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,8,0) 35%,rgba(20,16,8,.88) 100%);z-index:1}
 .cover{background-size:cover}
+.tb{display:flex;gap:6px;align-items:center;background:#fff;border:1.5px solid #d7d2c6;border-radius:14px;box-shadow:0 12px 28px -12px rgba(0,0,0,.35);padding:8px 10px;font-size:calc(var(--fb)*.85)}
+.tbb{min-width:1.7em;height:1.7em;display:flex;align-items:center;justify-content:center;border-radius:8px;color:#3a352c;padding:0 6px}
+.tbb.on{background:#f4e8c2;color:#6b5420;gap:8px;padding:0 14px;font-weight:700;border:1.5px solid #c9a84c}.tbb.on em{font-style:normal;font-size:.9em}
+.sel{background:#cfe0ff;border-radius:4px;padding:0 4px}
+.fm{width:82%;display:flex;flex-direction:column;gap:12px;background:#fffdf8;border:1.5px solid #d7d2c6;border-radius:18px;box-shadow:0 14px 34px -14px rgba(0,0,0,.35);padding:26px 28px;text-align:right}
+.fi,.ft{border:1.5px solid #d7d2c6;border-radius:12px;padding:12px 16px;background:#fff;font-size:calc(var(--fb)*.85)}.fi{font-weight:700}.ft{line-height:1.8;color:#3a352c}
+.fth{color:#836a27;font-size:calc(var(--fb)*.7);font-weight:600}
+.fbtn{background:#c9a84c;color:#0c0a07;font-weight:800;text-align:center;border-radius:12px;padding:12px;font-size:calc(var(--fb)*.85)}
+.fsr{text-align:center;color:#836a27;font-size:calc(var(--fb)*.7);text-decoration:underline dotted}
+.ftr{width:100%;display:flex;gap:calc(var(--gap2)*1.2);justify-content:center;align-items:flex-start;background:#1c1a16;color:#e9e2d0;border-radius:18px;padding:30px 28px}
+.fcol{display:flex;flex-direction:column;gap:10px;flex:1;text-align:right}.fh{font-size:calc(var(--fb)*.55);letter-spacing:.18em;color:#a89a74;margin-bottom:4px}
+.fl{font-size:calc(var(--fb)*.8)}.fl.hi{background:#c9a84c;color:#0c0a07;font-weight:800;border-radius:8px;padding:2px 10px;align-self:flex-start}
+
 .mk{width:100%;display:flex;flex-direction:column;align-items:center;gap:calc(var(--gap2)*.6)}
 .mkp{width:100%;background:#fff;border:1.5px solid #e3ded3;border-radius:18px;padding:26px 30px;font-size:calc(var(--fb)*1.0);line-height:2;text-align:right}
 .mkw{border-bottom:3px dotted #836a27;padding-bottom:2px}
@@ -98,6 +113,7 @@ VARS={
 'x':"--W:1600px;--H:900px;--m:32px;--pad:70px 80px 56px;--gap:20px;--gap2:22px;--fk:24px;--rule:50px;--ft:52px;--fb:29px;--ff:23px;--ff2:28px;--fv:36px;--ftb:25px;--tp:10px;--fb2:38px;--cdir:row;--cgap:14px;--nw:200px;--imgw:860px;--fct:104px;--cpad:60px 80px 70px",
 }
 VARS['st']=VARS['ig'].replace('--H:1350px','--H:1920px')
+BMSVG='<svg viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v8l3-2 3 2V2"/><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>'
 def foot(i,plat):
     pos,tot=(XS.index(i)+1,len(XS)) if plat=='x' else (i,N)
     return f'<div class="foot"><span><b>دیوان</b> &nbsp;<span class="lt">diwan.center</span></span><span class="pg" dir="ltr">{fa(pos)} / {fa(tot)}</span></div>'
@@ -137,6 +153,13 @@ def html(i,s,plat):
         inner=f'<h2>{s["title"]}</h2><table class="tbl"><tr>'+''.join(f'<th>{h}</th>' for h in s['head'])+'<th></th></tr>'+rows+f'</table><div class="note">{s["note"]}</div>'
     elif k=='mock':
         inner=(f'<div class="kk2">{s["kicker"]}</div><h2>{s["title"]}</h2><div class="mk"><p class="mkp">{s["para_a"]}<span class="mkw">{s["word"]}</span>{s["para_b"]}</p><div class="mkc"><b>{s["ptitle"]}</b><span>{s["pbody"]}</span><i>{s["plink"]}</i></div></div><div class="body" style="font-size:calc(var(--fb)*.9)">{s["cap"]}</div>')
+    elif k=='toolbar':
+        inner=(f'<h2>{s["title"]}</h2><div class="mk"><div class="tb"><span class="tbb"><b>B</b></span><span class="tbb"><i>I</i></span><span class="tbb"><u>U</u></span><span class="tbb"><s>S</s></span><span class="tbb">&#128279;</span><span class="tbb on">BMSVG<em>پانویس</em></span></div><p class="mkp">ریاضی‌دانان از روزگار <span class="sel">فیثاغورس</span> می‌دانستند که کار با عدد، کار با نظم جهان است.</p></div><div class="body" style="font-size:calc(var(--fb)*.9)">{s["cap"]}</div>').replace('BMSVG',BMSVG)
+    elif k=='form':
+        inner=(f'<h2>{s["title"]}</h2><div class="fm"><div class="fi">فیثاغورس</div><div class="ft">فیلسوف و ریاضی‌دان یونانی،<br>سدهٔ ششم پیش از میلاد.</div><div class="fth">&#128247; افزودن تصویر بندانگشتی (اختیاری)</div><div class="fbtn">افزودن پانویس</div><div class="fsr">جستجوی پانویس‌های موجود...</div></div><div class="body" style="font-size:calc(var(--fb)*.9)">{s["cap"]}</div>')
+    elif k=='footer':
+        def col(h,items,hl=None): return f'<div class="fcol"><span class="fh">{h}</span>'+''.join(f'<span class="fl{" hi" if x==hl else ""}">{x}</span>' for x in items)+'</div>'
+        inner=(f'<h2>{s["title"]}</h2><div class="ftr">'+col('ساختار',['جشنواره','مجله','وبلاگ','واژه‌نامه','آثار','نقشه سایت'],'واژه‌نامه')+col('امکانات',['نام‌نویسی','ورود','حساب ویژه','کلاس‌ها','بازار'])+col('چیستی دیوان',['درباره ما','تماس','حمایت مالی','شرایط استفاده','حریم خصوصی'])+f'</div><div class="body" style="font-size:calc(var(--fb)*.9)">{s["cap"]}</div>')
     elif k=='list':
         inner=f'<h2>{s["title"]}</h2><ol class="ol">'+''.join(f'<li><b>{fa(n+1)}</b><span>{t}</span></li>' for n,t in enumerate(s['items']))+'</ol>'
     elif k=='close':
