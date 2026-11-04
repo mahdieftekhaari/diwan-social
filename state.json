@@ -262,6 +262,19 @@
       "bufferId": "6aeadec82b43f8ba7d73d00f",
       "dueAt": "2026-11-04T17:00:00.000Z",
       "status": "scheduled"
+    },
+    "tg": {
+      "messageId": 55,
+      "messageIds": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ],
+      "at": "2026-11-04T17:00:01.994Z"
     }
   }
 }
