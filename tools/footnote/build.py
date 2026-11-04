@@ -8,12 +8,12 @@ N=5
 XS=[1,2,4,5]
 K='امکانات دیوان'
 S=[
- dict(k='text',kicker=K,title='پانویس',body='واژه، نام یا اشاره‌ای که خواننده نمی‌شناسد،\nحالا همان‌جا توضیح دارد.\n\nنویسنده توضیحش را می‌نویسد،\nخواننده بی‌آن‌که از متن بیرون برود می‌خواند.'),
- dict(k='mock',kicker=K,title='توضیح، همان‌جا',para_a='ریاضی‌دانان از روزگار ',word='فیثاغورس',para_b=' می‌دانستند که کار با عدد، کار با نظم جهان است.',ptitle='فیثاغورس',pbody='فیلسوف و ریاضی‌دان یونانی،\nسدهٔ ششم پیش از میلاد.',plink='دیدن در واژه‌نامه',cap='زیر واژه یک خط نقطه‌چین طلایی می‌بینی.\nنشانگر را روی آن ببر یا لمسش کن.'),
- dict(k='toolbar',title='چطور پانویس بگذاریم؟ ۱',cap='در ویرایشگر، واژه یا عبارت را انتخاب کن\nو از نوار ابزار «پانویس» را بزن.'),
- dict(k='form',title='چطور پانویس بگذاریم؟ ۲',cap='عنوان و توضیح کوتاه بنویس؛ تصویر اختیاری است.\nیا یکی از پانویس‌های موجود را جستجو کن.'),
+ dict(k='text',kicker=K,title='پانویس',body='واژه، نام یا اشاره‌ای که شاید برای خواننده\nآشنا نباشند، در دیوان به آسانی\nتوضیح داده می‌شوند.\n\nنویسنده توضیحش را در پانویس اضافه می‌کند\nو خواننده بی‌آن‌که از صفحه بیرون برود\nمی‌تواند پانویس را ببیند.'),
+ dict(k='hover',kicker='',title='دیدن پانویس',cap='زیر واژه یک خط نقطه‌چین طلایی می‌بینی.\nنشانگر را روی آن ببر یا لمسش کن.\nمثلاً برای <span class="mkw">فیثاغورس</span> در متن زیر.',ptitle='فیثاغورس',pbody='فیلسوف و ریاضی‌دان یونانی،\nسدهٔ ششم پیش از میلاد.',plink='دیدن در واژه‌نامه'),
+ dict(k='shot',title='چطور پانویس بگذاریم؟',cap='در ویرایشگر، واژه یا عبارت را انتخاب کن\nو از نوار ابزار «پانویس» را بزن.',img='assets/toolbar_c.png'),
+ dict(k='form',title='چطور پانویس بگذاریم؟',cap='عنوان و توضیح کوتاه بنویس؛ تصویر اختیاری است.\nیا یکی از پانویس‌های موجود را جستجو کن.'),
  dict(k='text',kicker=K,title='واژه‌نامه‌ی دیوان',body='پانویس‌ها مشترک‌اند.\nهر نویسنده‌ی دیوان می‌تواند یکی بسازد\nو دیگران هم در آثارشان از همان استفاده کنند.\n\nصفحه‌ی «واژه‌نامه» همه‌ی آن‌ها را جمع می‌کند\nو نشان می‌دهد هر کدام در چند اثر آمده.'),
- dict(k='footer',title='واژه‌نامه را کجا ببینیم؟',cap='از پایین هر صفحه‌ی سایت،\nستون «ساختار»، «واژه‌نامه».'),
+ dict(k='gloss',title='صفحه‌ی واژه‌نامه',cap='همین حالا این پانویس‌ها در دیوان هستند.\n<span dir="ltr">diwan.center/footnotes</span>'),
  dict(k='close',title='پانویس بعدی مال توست',body='واژه‌ای ناآشنا در نوشته‌ات هست؟\nتوضیحش را همان‌جا بگذار.',final='داستانت را بنویس و منتشر کن.',),
 ]
 N=7; XS=[1,3,4,6]
@@ -80,6 +80,19 @@ h1,h2{font-family:Doran,Vazirmatn,sans-serif;font-weight:800;line-height:1.3;tex
 .link{direction:ltr;font-weight:700;letter-spacing:.06em;color:#836a27;font-size:var(--ff2);text-align:center}
 .cover .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,8,0) 35%,rgba(20,16,8,.88) 100%);z-index:1}
 .cover{background-size:cover}
+.mkp .bl{filter:blur(4px);opacity:.55}.hv{position:relative;display:inline-block;padding:0 2px}
+.cur{position:absolute;left:38%;top:70%;width:calc(var(--fb)*1.9);height:auto;filter:drop-shadow(0 3px 4px rgba(0,0,0,.35))}
+.car{width:0;height:0;border:14px solid transparent;border-top-color:#d7d2c6;border-bottom:0;margin:-6px 0 -2px}
+.shot{width:100%;border-radius:18px;border:1.5px solid #e3ded3;box-shadow:0 14px 34px -14px rgba(0,0,0,.35)}
+.gp{width:100%;background:#faf7f2;border:1.5px solid #e3ded3;border-radius:20px;padding:16px;box-shadow:0 14px 34px -14px rgba(0,0,0,.35)}
+.gh{font-family:Doran,Vazirmatn;font-weight:800;font-size:calc(var(--fb)*.9);text-align:right;margin-bottom:10px}
+.gg{display:grid;grid-template-columns:repeat(var(--gcols),1fr);gap:10px}
+.gc{background:#f5f2ec;border:1.5px solid #e3ded3;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;text-align:right}
+.gi{height:var(--gih);display:flex;align-items:center;justify-content:center;background:#ebe6db;color:#b3ab98;font-family:Doran,Vazirmatn;font-size:calc(var(--fb)*1.1)}
+.gt{padding:8px 12px;display:flex;flex-direction:column;gap:4px}.gt b{font-family:Doran,Vazirmatn;font-size:calc(var(--fb)*.72)}
+.gt span{font-size:calc(var(--fb)*.56);line-height:1.7;color:#6b6456;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gt em{font-style:normal;font-size:calc(var(--fb)*.5);color:#a8883a}
+
 .tb{display:flex;gap:6px;align-items:center;background:#fff;border:1.5px solid #d7d2c6;border-radius:14px;box-shadow:0 12px 28px -12px rgba(0,0,0,.35);padding:8px 10px;font-size:calc(var(--fb)*.85)}
 .tbb{min-width:1.7em;height:1.7em;display:flex;align-items:center;justify-content:center;border-radius:8px;color:#3a352c;padding:0 6px}
 .tbb.on{background:#f4e8c2;color:#6b5420;gap:8px;padding:0 14px;font-weight:700;border:1.5px solid #c9a84c}.tbb.on em{font-style:normal;font-size:.9em}
@@ -153,10 +166,18 @@ def html(i,s,plat):
         inner=f'<h2>{s["title"]}</h2><table class="tbl"><tr>'+''.join(f'<th>{h}</th>' for h in s['head'])+'<th></th></tr>'+rows+f'</table><div class="note">{s["note"]}</div>'
     elif k=='mock':
         inner=(f'<div class="kk2">{s["kicker"]}</div><h2>{s["title"]}</h2><div class="mk"><p class="mkp">{s["para_a"]}<span class="mkw">{s["word"]}</span>{s["para_b"]}</p><div class="mkc"><b>{s["ptitle"]}</b><span>{s["pbody"]}</span><i>{s["plink"]}</i></div></div><div class="body" style="font-size:calc(var(--fb)*.9)">{s["cap"]}</div>')
+    elif k=='hover':
+        inner=(f'<div class="kk2">{s["kicker"]}</div><h2>{s["title"]}</h2><div class="body" style="font-size:calc(var(--fb)*.9)">{s["cap"]}</div><div class="mk"><div class="mkc"><b>{s["ptitle"]}</b><span>{s["pbody"]}</span><i>{s["plink"]}</i></div><div class="car"></div><p class="mkp"><span class="bl">دیرزمانی است که ریاضی‌دانان می‌گویند جهان را باید با عدد خواند و هر نظمی</span> <span class="mkw hv">فیثاغورس<svg class="cur" viewBox="0 0 24 24" width="64" height="64"><path d="M5 3l14 8-6 1.8L9.6 19z" fill="#111" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg></span> <span class="bl">را به یاد می‌آورد؛ آنچه او آغاز کرد در سده‌ها ادامه یافت.</span></p></div>')
+    elif k=='shot':
+        inner=(f'<h2>{s["title"]}</h2><div class="body" style="font-size:calc(var(--fb)*.9)">{s["cap"]}</div><img class="shot" src="file://{os.getcwd()}/{s["img"]}">')
+    elif k=='gloss':
+        cards=[('جلال آل احمد','منظور بزرگراه جلال آل احمد در تهران است.'),('Kinko','سرویس پستی و پرینت که در سال ۱۹۷۰ تأسیس شد و در ۲۰۰۴ شرکت پستی فد-اکس آن را خرید.'),("Bloomingdale's",'نام یک فروشگاه زنجیره‌ای در آمریکا'),('whole food','نام فروشگاهی زنجیره‌ای در آمریکا'),('روزهای سرکشی','روزهای سرکشی در برابر Days of being wild از ساخته های ونگ کار وای است.'),('ونگ کار وای','فیلمساز هنگ‌کنگی متولد چین.')]
+        cs=''.join(f'<div class="gc"><div class="gi">{t[0]}</div><div class="gt"><b>{t}</b><span>{b}</span><em>استفاده‌شده در ۱ اثر</em></div></div>' for t,b in cards)
+        inner=(f'<h2>{s["title"]}</h2><div class="body" style="font-size:calc(var(--fb)*.9)">{s["cap"]}</div><div class="gp"><div class="gh">واژه‌نامه</div><div class="gg">{cs}</div></div>')
     elif k=='toolbar':
         inner=(f'<h2>{s["title"]}</h2><div class="mk"><div class="tb"><span class="tbb"><b>B</b></span><span class="tbb"><i>I</i></span><span class="tbb"><u>U</u></span><span class="tbb"><s>S</s></span><span class="tbb">&#128279;</span><span class="tbb on">BMSVG<em>پانویس</em></span></div><p class="mkp">ریاضی‌دانان از روزگار <span class="sel">فیثاغورس</span> می‌دانستند که کار با عدد، کار با نظم جهان است.</p></div><div class="body" style="font-size:calc(var(--fb)*.9)">{s["cap"]}</div>').replace('BMSVG',BMSVG)
     elif k=='form':
-        inner=(f'<h2>{s["title"]}</h2><div class="fm"><div class="fi">فیثاغورس</div><div class="ft">فیلسوف و ریاضی‌دان یونانی،<br>سدهٔ ششم پیش از میلاد.</div><div class="fth">&#128247; افزودن تصویر بندانگشتی (اختیاری)</div><div class="fbtn">افزودن پانویس</div><div class="fsr">جستجوی پانویس‌های موجود...</div></div><div class="body" style="font-size:calc(var(--fb)*.9)">{s["cap"]}</div>')
+        inner=(f'<h2>{s["title"]}</h2><div class="body" style="font-size:calc(var(--fb)*.9)">{s["cap"]}</div><div class="fm"><div class="fi">فیثاغورس</div><div class="ft">فیلسوف و ریاضی‌دان یونانی،<br>سدهٔ ششم پیش از میلاد.</div><div class="fth">&#128247; افزودن تصویر بندانگشتی (اختیاری)</div><div class="fbtn">افزودن پانویس</div><div class="fsr">جستجوی پانویس‌های موجود...</div></div>')
     elif k=='footer':
         def col(h,items,hl=None): return f'<div class="fcol"><span class="fh">{h}</span>'+''.join(f'<span class="fl{" hi" if x==hl else ""}">{x}</span>' for x in items)+'</div>'
         inner=(f'<h2>{s["title"]}</h2><div class="ftr">'+col('ساختار',['جشنواره','مجله','وبلاگ','واژه‌نامه','آثار','نقشه سایت'],'واژه‌نامه')+col('امکانات',['نام‌نویسی','ورود','حساب ویژه','کلاس‌ها','بازار'])+col('چیستی دیوان',['درباره ما','تماس','حمایت مالی','شرایط استفاده','حریم خصوصی'])+f'</div><div class="body" style="font-size:calc(var(--fb)*.9)">{s["cap"]}</div>')
@@ -177,8 +198,9 @@ def html(i,s,plat):
     return f'<div class="slide">{frame}<div class="panel">{kick()}<div class="main">{inner}</div>{foot(i,plat)}</div></div>'
 def page(i,s,plat):
     # tweak: imgtext on IG uses smaller text sizes
-    pv={'ig':'--ap:40px 36px;--ag:22px;--aw:200px;--wkw:100%;--cw:84px','st':'--ap:44px 36px;--ag:26px;--aw:250px;--wkw:100%;--cw:92px','tg':'--ap:22px 40px;--ag:40px;--aw:130px;--wkw:46%;--cw:64px','x':'--ap:26px 50px;--ag:46px;--aw:160px;--wkw:46%;--cw:76px'}[plat]
+    pv={'ig':'--gcols:2;--gih:40px;--ap:40px 36px;--ag:22px;--aw:200px;--wkw:100%;--cw:84px','st':'--gcols:2;--gih:40px;--ap:44px 36px;--ag:26px;--aw:250px;--wkw:100%;--cw:92px','tg':'--gcols:3;--gih:30px;--ap:22px 40px;--ag:40px;--aw:130px;--wkw:46%;--cw:64px','x':'--gcols:3;--gih:30px;--ap:26px 50px;--ag:46px;--aw:160px;--wkw:46%;--cw:76px'}[plat]
     extra=(('.body{line-height:1.65!important}') if plat=='tg' else '')+':root{'+pv+'}'+('.pg{display:none}' if plat=='st' else '')+'.body{font-size:calc(var(--fb)*1.2)}h2{font-size:calc(var(--ft)*1.12)}'
+    if plat in('tg','x'): extra+='.mkc{width:52%;padding:12px 20px;gap:4px}.mkp{padding:12px 22px;line-height:1.8}.gp{padding:10px}.gt{padding:5px 10px}.gh{margin-bottom:6px}.gg{gap:8px}.car{margin:-4px 0 -2px}'
     if plat=='ig' and s['k'] in('imgtext','imgverse'): extra='.body{font-size:33px;line-height:1.85}h2{font-size:56px}.verse.sm{font-size:37px}.kick{font-size:26px}'
     if plat=='ig' and s['k']=='chain' and len(s['chain'])>3: extra+='.node{padding:8px 20px}.chain{gap:10px}.node .w{font-size:36px}'
     return f'<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><style>{CSS}:root{{{VARS[plat]}}}{extra}</style></head><body>{html(i,s,plat)}</body></html>'
