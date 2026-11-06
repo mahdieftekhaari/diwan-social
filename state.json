@@ -276,5 +276,21 @@
       ],
       "at": "2026-11-04T17:00:01.994Z"
     }
+  },
+  "post16": {
+    "ig": {
+      "bufferId": "6aedee450a30a4b11ef06b34",
+      "dueAt": "2026-11-06T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "x": {
+      "bufferId": "6aedee456e87069bd7185468",
+      "dueAt": "2026-11-06T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "tg": {
+      "messageId": 62,
+      "at": "2026-11-06T17:00:01.466Z"
+    }
   }
 }
