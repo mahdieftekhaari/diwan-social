@@ -142,7 +142,7 @@ def html(i,s,plat):
 def page(i,s,plat):
     # tweak: imgtext on IG uses smaller text sizes
     pv={'ig':'--ap:40px 36px;--ag:22px;--aw:200px;--wkw:100%;--cw:84px','st':'--ap:44px 36px;--ag:26px;--aw:250px;--wkw:100%;--cw:92px','tg':'--ap:22px 40px;--ag:40px;--aw:130px;--wkw:46%;--cw:64px','x':'--ap:26px 50px;--ag:46px;--aw:160px;--wkw:46%;--cw:76px'}[plat]
-    extra=':root{'+pv+'}'+('.pg{display:none}' if plat=='st' else '')+'.body{font-size:calc(var(--fb)*1.2)}h2{font-size:calc(var(--ft)*1.12)}'
+    extra=':root{'+pv+'}'+('.pg{display:none}' if (plat=='st' or 'card' in sys.argv) else '')+'.body{font-size:calc(var(--fb)*1.2)}h2{font-size:calc(var(--ft)*1.12)}'
     if plat=='ig' and s['k'] in('imgtext','imgverse'): extra='.body{font-size:33px;line-height:1.85}h2{font-size:56px}.verse.sm{font-size:37px}.kick{font-size:26px}'
     if plat=='ig' and s['k']=='chain' and len(s['chain'])>3: extra+='.node{padding:8px 20px}.chain{gap:10px}.node .w{font-size:36px}'
     return f'<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><style>{CSS}:root{{{VARS[plat]}}}{extra}</style></head><body>{html(i,s,plat)}</body></html>'
