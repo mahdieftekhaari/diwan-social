@@ -122,7 +122,7 @@ def html(i,s,plat):
         inner=(f'<div class="kk2">{s["kicker"]}</div><h2 style="font-size:calc(var(--ft)*1.25)">{s["title"]}</h2><div class="lead">{s["lead"]}</div>'
           f'<div class="acard"><div class="aav"><div class="arch" style="background-image:url(../'+CFG['avatar']+')"></div></div>'
           f'<div class="atx"><div class="aname">{s["name"]}</div><div class="aact">{s["act"]}</div></div>'
-          f'<div class="wk"><div class="wt">{s["work"]}</div><div class="wc" style="background-image:url(../'+CFG['cover']+')"></div></div></div>')
+          f'<div class="wk"><div class="wt">{s["work"]}</div>'+('<div class="wc" style="background-image:url(../'+CFG['cover']+')"></div>' if CFG.get('cover') else '')+'</div></div>')
     elif k=='lb':
         rows=''.join('<tr'+(' class="win"' if n==0 else '')+'>'+''.join(f'<td>{c}</td>' for c in r)+('<td class="bd">'+s['badge']+'</td>' if n==0 else '<td class="bd"></td>')+'</tr>' for n,r in enumerate(s['rows']))
         inner=f'<h2>{s["title"]}</h2><table class="tbl"><tr>'+''.join(f'<th>{h}</th>' for h in s['head'])+'<th></th></tr>'+rows+f'</table><div class="note">{s["note"]}</div>'
