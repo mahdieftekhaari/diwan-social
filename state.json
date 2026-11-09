@@ -292,5 +292,33 @@
       "messageId": 62,
       "at": "2026-11-06T17:00:01.466Z"
     }
+  },
+  "post17": {
+    "ig": {
+      "bufferId": "6af1fa3b08578dcbeb66d678",
+      "dueAt": "2026-11-09T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "x": {
+      "bufferId": "6af1fa3c910ac490b30e25eb",
+      "dueAt": "2026-11-09T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "tg": {
+      "messageId": 64,
+      "messageIds": [
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "at": "2026-11-09T17:00:02.355Z"
+    }
   }
 }
