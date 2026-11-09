@@ -9,15 +9,18 @@ XS=[1,2,4,5]
 K='پرسه در جهان کلمه'
 K='پرسه در جهان کلمه'
 S=[
- dict(k='text',kicker=K,title='آب حیات',body='آبی که هر که بنوشد، دیگر نمی‌میرد.\nاسکندر برای یافتنش به تاریکی رفت.\n\nاما کسی که آن را یافت،\nاسکندر نبود.'),
- dict(k='text',kicker=K,title='آب حیات یعنی چه؟',body='«آب حیات» یا «آب زندگانی» و «آب حیوان»:\nآبی افسانه‌ای که نوشنده‌اش جاودانه می‌شود.\n«حیوان» در این ترکیب یعنی زندگی.\n\nریشه‌اش پیش از اسلام است:\nگیاه جاودانگی در حماسه‌ی گیلگمش\nو درخت «گوکرن» در اوستا.'),
- dict(k='tv',kicker=K,title='اسکندر به ظلمات می‌رود',body='نظامی در «شرف‌نامه» می‌گوید:\nاسکندر برای یافتن آب حیات\nبه سرزمین تاریکی می‌رود.\nخضر پیش‌رو است و گوهری دارد\nکه کنار آب روشن می‌شود.',verse=['بیا ساقی آن خاک ظلمات رنگ','بجوی و بیار آب حیوان به چنگ']),
- dict(k='tv',kicker=K,title='خضر چشمه را می‌یابد',body='گوهر می‌درخشد و چشمه‌ای نقره‌گون پیدا می‌شود.\nخضر در آن تن می‌شوید و می‌نوشد.\nاسکندر که می‌رسد، چشمه ناپدید می‌شود:',verse=['ز محرومی او نه از خشم او','نهان گشت چون چشمه از چشم او']),
- dict(k='text',kicker=K,title='روایت دیگر: ماهی',body='نظامی روایت دیگری را هم می‌آورد:\nالیاس و خضر کنار چشمه سفره می‌گشایند.\nماهیِ خشکیده‌ای از دستشان در آب می‌افتد\nو زنده می‌شود.\n\nآن‌جا می‌فهمند که این چشمه،\nآب حیات است.'),
- dict(k='tv',kicker=K,title='اسکندر در سایه می‌ماند',body='اسکندر چهل روز چشمه را می‌جوید.\nسروشی به او می‌گوید:\n«جهان را گرفتی، اما از هوس سیر نشدی.»\n\nو هاتفی می‌گوید:',verse=['سکندر که جست آب حیوان ندید','نجسته به خضر آب حیوان رسید']),
- dict(k='close',title='قصه به کجا می‌رسد؟',body='نظامی قصه را به این‌جا می‌رساند:\nما همه کشاورزانِ یکدیگریم؛\nپیشینیان کاشتند و ما می‌خوریم،\nپس ما هم باید برای بعدی‌ها بکاریم.',final='و نوشتن، یکی از کاشتن‌هاست.',src='منبع: نظامی، شرف‌نامه، بخش ۶۰ (گنجور)؛ بهادری و حسینی کازرونی، ۱۳۹۵'),
+ dict(k='imgtext',kicker=K,img='assets/cover_art.jpg',pos='50%',ih=1000,title='آب حیوان',body='ماهیِ خشکیده‌ای در چشمه افتاد و زنده شد.\nاسکندر چهل روز گشت و چشمه را نیافت.'),
+ dict(k='defs',kicker=K,title='یک آب، چند نام',items=[('آب حیات','«حیات» عربی است و یعنی زندگی.'),('آب زندگانی','همان معنی، به فارسی.'),('آب حیوان','«حیوان» در فارسی کهن یعنی زندگی، نه جانور.'),('چشمه‌ی حیوان','جایی که این آب می‌جوشد.'),('ظلمات','تاریکی؛ سرزمینی که چشمه در آن پنهان است.')]),
+ dict(k='defs',kicker=K,title='ریشه‌ی قصه از کجاست؟',items=[('گیلگمش','گیاه جاودانگی در ته دریا؛ ماری آن را می‌دزدد.'),('اوستا','درخت «گوکرن» در دریای فراخ‌کرت.'),('رمان اسکندر','ماهیِ شورِ آشپز در چشمه‌ی زندگی زنده می‌شود.'),('قرآن، سوره‌ی کهف','ماهیِ موسی به دریا می‌گریزد و نشانِ دیدار با آن بنده است؛ نامی از آب حیات نیست.')],note='ریشه‌ی قصه روشن نیست و پژوهشگران این‌ها را پیشنهاد می‌کنند.'),
+ dict(k='tv',kicker=K,title='قصه‌ی ماهی',body='نظامی روایت رومیان را می‌آورد:\nالیاس و خضر کنار چشمه سفره می‌گشایند.\nماهیِ خشکیده‌ای در آب می‌افتد و زنده می‌شود.\nمی‌فهمند این چشمه، آب حیات است\nو هر دو می‌نوشند.',verse=['شگفتی در آن ماهی مرده بود','که بر چشمه زندگی ره نمود']),
+ dict(k='tv',kicker=K,title='اسکندر به ظلمات می‌رود',body='در روایتِ دیگرِ نظامی، خضر پیش‌رو است\nو گوهری دارد که کنار آب روشن می‌شود.\nگوهر می‌درخشد و خضر در چشمه\nتن می‌شوید و می‌نوشد.\nاسکندر که می‌رسد، چشمه ناپدید می‌شود:',verse=['ز محرومی او نه از خشم او','نهان گشت چون چشمه از چشم او']),
+ dict(k='tv',kicker=K,title='اسکندر در سایه می‌ماند',body='اسکندر چهل روز چشمه را می‌جوید.\nسروشی به او می‌گوید:\n«جهان را گرفتی، اما از هوس سیر نشدی»\n\nو هاتفی می‌گوید:',verse=['سکندر که جست آب حیوان ندید','نجسته به خضر آب حیوان رسید']),
+ dict(k='text',kicker=K,title='خضر کیست؟',body='خضر یعنی «سبز».\nدر قرآن (سوره‌ی کهف) بنده‌ای بی‌نام\nهمراه موسی است؛ مفسران او را خضر دانسته‌اند.\n\nبعضی او را پیامبر دانسته‌اند، بعضی ولی\nو بعضی فرشته. در باور مردم هم\nراهنمای رهگذران و پاسدار آب و سبزه است.'),
+ dict(k='text',kicker=K,title='خضر و اسکندر هم‌دوره‌اند؟',body='به حساب تاریخ، نه.\nموسی حدود هزار سال پیش از اسکندر است،\nو طبری روایتی دارد که خضر را\nاز روزگار فریدون، پیش از موسی، می‌داند.\n\nاما در قصه‌های ایرانی، از جمله نظامی،\nخضر راهنمای اسکندر است.'),
+ dict(k='tv',kicker=K,title='صائب و عمر دراز',body='صائب تبریزی می‌گوید:\nمعنای عمر در خوبیِ آن است، نه درازی‌اش.\nخضر و زندگی جاوید برای دیگران؛\nما را همان می‌ِ دوساله بس است.',verse=['کیفیت است مطلب از عمر نه درازی','خضر و حیات جاوید ما و می دو ساله']),
+ dict(k='close',title='قصه به کجا می‌رسد؟',body='نظامی قصه را به این‌جا می‌رساند:\nما همه کشاورزانِ یکدیگریم؛\nپیشینیان کاشتند و ما می‌خوریم،\nپس ما هم باید برای بعدی‌ها بکاریم.',final='و نوشتن، یکی از کاشتن‌هاست.',src='منبع: نظامی، شرف‌نامه، بخش ۶۰ و صائب، تک‌بیت ۱۴۵۹ (گنجور)؛ ایرانیکا، «خضر»؛ بهادری و حسینی کازرونی، ۱۳۹۵'),
 ]
-N=7; XS=[1,3,4,7]
+N=10; XS=[1,4,5,10]
 assert len(S)==N
 SIZES={'st':(1080,1920),'ig':(1080,1350),'tg':(1280,720),'x':(1600,900)}
 CSS=DORAN+"""
@@ -81,6 +84,9 @@ h1,h2{font-family:Doran,Vazirmatn,sans-serif;font-weight:800;line-height:1.3;tex
 .link{direction:ltr;font-weight:700;letter-spacing:.06em;color:#836a27;font-size:var(--ff2);text-align:center}
 .cover .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,8,0) 35%,rgba(20,16,8,.88) 100%);z-index:1}
 .cover{background-size:cover}
+.dfs{display:flex;flex-direction:column;gap:calc(var(--gap2,18px)*.7);width:100%;text-align:right}.df{display:flex;flex-direction:column;gap:2px;padding:0 6px;border-right:4px solid #c9a84c;padding-right:16px}
+.df b{font-family:Doran,Vazirmatn;font-size:calc(var(--fb)*1.02);color:#7a5f1c}.df span{font-size:calc(var(--fb)*.86);line-height:1.7}.dnote{font-size:calc(var(--fb)*.7);color:#6b6456}
+
 .ol{list-style:none;width:100%;display:flex;flex-direction:column;gap:calc(var(--gap2)*.7)}.ol li{display:flex;gap:20px;align-items:flex-start;font-size:calc(var(--fb)*1.02);line-height:1.8}.ol b{flex:0 0 1.7em;height:1.7em;border-radius:50%;background:#c9a84c;color:#0c0a07;text-align:center;line-height:1.7em;font-family:Doran,Vazirmatn;font-size:.9em}
 .cover .ct{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:var(--cpad);text-align:center;color:#faf7f2;display:flex;flex-direction:column;gap:18px;align-items:center}
 .cover h1{color:#faf7f2;font-size:var(--fct)}
@@ -132,6 +138,9 @@ def html(i,s,plat):
         inner=f'<h2>{s["title"]}</h2><table class="tbl"><tr>'+''.join(f'<th>{h}</th>' for h in s['head'])+'<th></th></tr>'+rows+f'</table><div class="note">{s["note"]}</div>'
     elif k=='list':
         inner=f'<h2>{s["title"]}</h2><ol class="ol">'+''.join(f'<li><b>{fa(n+1)}</b><span>{t}</span></li>' for n,t in enumerate(s['items']))+'</ol>'
+    elif k=='defs':
+        rows=''.join(f'<div class="df"><b>{a}</b><span>{b}</span></div>' for a,b in s['items'])
+        inner=f'<div class="kk2">{s["kicker"]}</div><h2>{s["title"]}</h2><div class="dfs">{rows}</div>'+(f'<div class="dnote">{s["note"]}</div>' if s.get('note') else '')
     elif k=='tv':
         inner=f'<div class="kk2">{s["kicker"]}</div><h2>{s["title"]}</h2><div class="body">{s["body"]}</div><div class="verse sm">{"<br>".join(s["verse"])}</div>'
     elif k=='close':
@@ -151,6 +160,7 @@ def page(i,s,plat):
     # tweak: imgtext on IG uses smaller text sizes
     pv={'ig':'--ap:40px 36px;--ag:22px;--aw:200px;--wkw:100%;--cw:84px','st':'--ap:44px 36px;--ag:26px;--aw:250px;--wkw:100%;--cw:92px','tg':'--ap:22px 40px;--ag:40px;--aw:130px;--wkw:46%;--cw:64px','x':'--ap:26px 50px;--ag:46px;--aw:160px;--wkw:46%;--cw:76px'}[plat]
     extra=(('.body{line-height:1.65!important}') if plat=='tg' else '')+':root{'+pv+'}'+('.pg{display:none}' if plat=='st' else '')+'.body{font-size:calc(var(--fb)*1.2)}h2{font-size:calc(var(--ft)*1.12)}'
+    if plat in('tg','x'): extra+='.dfs{display:grid;grid-template-columns:1fr 1fr;gap:14px 34px}.df span{font-size:calc(var(--fb)*.78)}'
     if plat=='ig' and s['k'] in('imgtext','imgverse'): extra='.body{font-size:33px;line-height:1.85}h2{font-size:56px}.verse.sm{font-size:37px}.kick{font-size:26px}'
     if plat=='ig' and s['k']=='chain' and len(s['chain'])>3: extra+='.node{padding:8px 20px}.chain{gap:10px}.node .w{font-size:36px}'
     return f'<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><style>{CSS}:root{{{VARS[plat]}}}{extra}</style></head><body>{html(i,s,plat)}</body></html>'
