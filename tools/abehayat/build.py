@@ -10,17 +10,16 @@ K='پرسه در جهان کلمه'
 K='پرسه در جهان کلمه'
 S=[
  dict(k='imgtext',kicker=K,img='assets/cover_art.jpg',pos='50%',ih=1000,title='آب حیوان',body='اهالی ادب با این کلمات بیگانه نیستند.\nاما آب چه ربطی به حیوان دارد؟'),
- dict(k='defs',kicker=K,title='یک اصطلاح، چند ترکیب',items=[('آب حیوان','«آب» یعنی چشمه، و «حیوان» در فارسی کهن یعنی زندگی، نه جانور.'),('چشمه‌ی حیوان','همان معنی، با واژه‌ی «چشمه».'),('آب حیات','«حیات» عربی است و یعنی زندگی.'),('آب زندگانی','همان معنی، به فارسی.')]),
- dict(k='text',kicker=K,title='این‌ها چه ربطی به هم دارند؟',body='برای فهمیدن این ارتباط باید\nسراغ متن‌های مختلف برویم:\nگیلگمش و گیاه جاودانگی،\nاوستا و درخت گوکرن،\nرمان اسکندر و ماهیِ زنده‌شده، و سوره‌ی کهف.\n\nهرچند یک روایتِ ثابت\nبرای این قصه وجود ندارد،\nاما دانستن این قصه‌ها خالی از لطف نیست.'),
- dict(k='text',kicker=K,title='خضر کیست؟',body='در روایت‌های ایرانی و اسلامی\nنام خضر («سبز») آمده است.\nدر سوره‌ی کهف بنده‌ای بی‌نام\nهمراه موسی است که مفسران\nاو را خضر می‌دانند.\nدر بعضی روایت‌ها اسکندر هم همراه اوست،\nاما هم‌دوره نیستند: موسی هزار سال\nپیش از اسکندر بود و طبری خضر را\nاز روزگار فریدون می‌داند.'),
- dict(k='text',kicker=K,title='روایت نظامی: ماهی',body='در «شرف‌نامه» نظامی روایتی از رومیان می‌آورد:\nخضر و الیاس کنار چشمه‌ای سفره می‌گشایند.\nماهیِ نمک‌سود و خشکیده از دست\nیکی از آن دو در آب می‌افتد و زنده می‌شود.\nآن که ماهی را گرفت فهمید\nچشمه، آب حیات است؛\nنوشید و همراهش را خبر کرد.\nبعد یکی به دریا رفت، یکی به دشت.'),
- dict(k='tv',kicker=K,title='روایت نظامی: اسکندر',body='خضر پیش‌رو است و گوهری تابناک دارد.\nچشمه را می‌یابد، در آن تن می‌شوید و می‌نوشد.\nاما وقتی نگاه می‌کند، چشمه ناپدید می‌شود:\nمحرومیِ اسکندر بود، نه خشم او.\nاسکندر چهل روز در تاریکی می‌ماند\nو هاتفی می‌گوید:',verse=['سکندر که جست آب حیوان ندید','نجسته به خضر آب حیوان رسید']),
- dict(k='text',kicker=K,title='روایت فردوسی (۱)',body='در شاهنامه، اسکندر در غرب به شهری می‌رسد.\nپیرمردی از آبگیری می‌گوید\nکه خورشید در آن فرو می‌رود\nو جهان تاریک می‌شود،\nو از چشمه‌ی «آب حیوان»؛ نوشنده‌اش نمی‌میرد.\nاسکندر با چهل روز خوراک\nبه سرزمین تاریک لشکر می‌کشد\nو خضر را پیش‌رو می‌کند.'),
- dict(k='tv',kicker=K,title='روایت فردوسی (۲)',body='اسکندر یکی از دو مهره‌ی درخشانش\nرا به خضر می‌دهد.\nدر تاریکی به دوراهی می‌رسند\nو خضر از او گم می‌شود.\nفردوسی دلیلش را نمی‌گوید؛ فقط می‌گوید\nخضر به چشمه رسید، تن شست و نوشید:',verse=['پیمبر سوی آب حیوان کشید','سر زندگانی به کیوان کشید']),
- dict(k='poets',kicker=K,title='خضر و آب حیوان در شعر',items=[('حافظ','آب حیوان تیره‌گون شد خضر فرخ‌پی کجاست','خون چکید از شاخ گل باد بهار آن را چه شد',''),('صائب','کیفیت است مطلب از عمر نه درازی','خضر و حیات جاوید ما و می دو ساله',''),('خاقانی','او خود مرا حیات ابد داد خضروار','ز آن قطعه ای که چشمه حیوان شناسمش','')],more='سنایی، مولانا و طالب آملی هم از خضر گفته‌اند.'),
- dict(k='close',title='قصه به کجا می‌رسد؟',body='نظامی قصه را به این‌جا می‌رساند:\nما همه کشاورزانِ یکدیگریم؛\nپیشینیان کاشتند و ما می‌خوریم،\nپس ما هم باید برای بعدی‌ها بکاریم.',final='و نوشتن، یکی از کاشتن‌هاست.',src='منبع: شاهنامه، شرف‌نامه، حافظ، صائب و خاقانی (گنجور)؛ ایرانیکا، «خضر»؛ بهادری و حسینی کازرونی، ۱۳۹۵'),
+ dict(k='defs',kicker=K,title='یک اصطلاح، چند ترکیب',items=[('آب حیوان','«آب» یعنی چشمه، و «حیوان» واژه‌ای عربی به معنی زندگی است، نه جانور.'),('چشمه‌ی حیوان','همان معنی، با واژه‌ی «چشمه».'),('آب حیات','«حیات» هم عربی است و یعنی زندگی.'),('آب زندگانی','همان معنی، به فارسی.')]),
+ dict(k='text',kicker=K,title='این‌ها چه ربطی به هم دارند؟',body='برای فهمیدن ارتباط بین این ترکیب‌ها باید سراغ اصل قصه برویم. این قصه یک الگوی کهن است که در متون مختلف با شکل‌های مختلف تکرار شده: در گیلگمش به شکل گیاه جاودانگی، در اوستا به صورت درخت گوکرن، و در داستان اسکندر به شکل زنده‌شدن ماهی. قرآن، شاهنامه و متون ادبی دیگر هم این داستان را به شکل‌های مختلف آورده‌اند.\n\nطبیعی است که در طی هزاران سال دگرگونی، این داستان‌ها یک روایت ثابت نداشته باشند، اما شنیدنش خالی از لطف نیست.'),
+ dict(k='text',kicker=K,title='خضر',body='در میان روایت‌ها، پرتکرارترین شخصیت خضر است. خضر به معنی «سبز» است و در روایت‌های ایرانی و اسلامی شخصیتی پررنگ دارد که نه صراحتاً پیامبر است و نه مشخصاً از حکما. در قرآن اشاره‌ی مستقیمی به او نشده، اما در تفاسیر آمده کسی که همراه موسی است خضر است.\n\nدر روایت‌های دیگر همراه اسکندر است، در حالی که بین این دو هزار سال فاصله است. اما شاید اگر قصه‌اش را بدانیم بفهمیم چرا کسی به این فاصله‌ی تاریخی دقت نکرده.'),
+ dict(k='tv',kicker=K,title='خضر و حیات جاویدان',vfirst=True,verse=['کیفیت است مطلب از عمر نه درازی','خضر و حیات جاوید ما و می دو ساله'],body='صائب در بیتی که خضر و حیات جاوید را کنار هم می‌آورد، معنای عمر را در کیفیت آن می‌بیند. در متون بر این تأکید شده که خضر از حیات جاویدان برخوردار است؛ شاید برای همین است که بین روزگار او و موسی و اسکندر و حتی فریدون تفاوتی قائل نمی‌شوند.\n\nتمام این‌ها ما را به سوی داستان خضر و آب حیات می‌کشاند.'),
+ dict(k='imgtext',kicker=K,para=True,img='assets/nizami_fish_band.jpg',imgw='assets/nizami_fish_full.jpg',pos='50%',ih=560,title='ماهی',body='نظامی از قول رومیان می‌گوید خضر و الیاس کنار چشمه‌ای سفره گشودند و ماهیِ نمک‌سودِ خشکیده از دست یکی از آن دو در آب افتاد و زنده شد. خضر به دنبال ماهی به آب می‌پرد، از آن می‌نوشد و به حیات جاویدان می‌رسد. اگرچه در قصص‌الانبیاء آمده هر دو از آب می‌نوشند و یکی روانه‌ی کوه شد تا موکل دشت باشد و دیگری موکل آب.',cred='نگاره‌ی خضر و الیاس از شرف‌نامه‌ی نظامی؛ منبع: سیمرغ‌نامه (simurghnameh.com)'),
+ dict(k='tv',kicker=K,title='اسکندر',body='نظامی این قصه را جور دیگری هم نقل می‌کند که به روایت فردوسی شبیه است. اسکندر، که می‌دانیم در جوانی مرد، در کشورگشایی از چشمه‌ی حیات آگاه می‌شود، جایی که خورشید هنگام غروب در آن غرق می‌شود. پس به سرزمین تاریک می‌رود و خضرِ فرزانه، به‌عنوان مشاور، پیش از سپاه حرکت می‌کند. خضر به آب می‌رسد و می‌نوشد، اما پیش از رسیدن اسکندر چشمه برای همیشه ناپدید می‌شود.',verse=['سکندر که جست آب حیوان ندید','نجسته به خضر آب حیوان رسید']),
+ dict(k='poets',kicker=K,title='حالا این شعرها معنای دیگری پیدا می‌کنند',items=[('ناصرخسرو','بیهوده مجوی آب حیوان','در ظلمت خویش چون سکندر',''),('فرخی سیستانی','فسانه گشت و کهن شد حدیثِ اسکندر','سخن نو آر که نو را حلاوتی‌ست دگر','')],more='حافظ، فردوسی، خاقانی و چند شاعر دیگر هم از این قصه گفته‌اند.'),
+ dict(k='close',title='قصه به کجا می‌رسد؟',body='فرخی می‌گوید قصه کهنه شد، سخن نو بیاور. اما نظامی یادمان می‌آورد که سخن نو هم از کاشته‌ی پیشینیان می‌روید: ما همه کشاورزانِ یکدیگریم؛ پیشینیان کاشتند و ما می‌خوریم، پس ما هم باید برای بعدی‌ها بکاریم.',final='و نوشتن، یکی از کاشتن‌هاست.',src='منبع: شرف‌نامه و شاهنامه، ناصرخسرو، فرخی و صائب (گنجور)؛ بهادری و حسینی کازرونی، ۱۳۹۵؛ نگاره: سیمرغ‌نامه'),
 ]
-N=10; XS=[1,5,7,10]
+N=9; XS=[1,6,7,9]
 assert len(S)==N
 SIZES={'st':(1080,1920),'ig':(1080,1350),'tg':(1280,720),'x':(1600,900)}
 CSS=DORAN+"""
@@ -85,7 +84,7 @@ h1,h2{font-family:Doran,Vazirmatn,sans-serif;font-weight:800;line-height:1.3;tex
 .cover .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,8,0) 35%,rgba(20,16,8,.88) 100%);z-index:1}
 .cover{background-size:cover}
 .dfs{display:flex;flex-direction:column;gap:calc(var(--gap2,18px)*.7);width:100%;text-align:right}.df{display:flex;flex-direction:column;gap:2px;padding:0 6px;border-right:4px solid #c9a84c;padding-right:16px}
-.df b{font-family:Doran,Vazirmatn;font-size:calc(var(--fb)*1.02);color:#7a5f1c}.df span{font-size:calc(var(--fb)*.86);line-height:1.7}.dnote{font-size:calc(var(--fb)*.7);color:#6b6456}
+.df b{font-family:Doran,Vazirmatn;font-size:calc(var(--fb)*1.02);color:#7a5f1c}.df span{font-size:calc(var(--fb)*.86);line-height:1.7}.par{font-size:var(--fb);line-height:1.95;text-align:right;width:100%}.par p+p{margin-top:.55em}.cred{font-size:calc(var(--fb)*.62);color:#6b6456;text-align:right;width:100%}.dnote{font-size:calc(var(--fb)*.7);color:#6b6456}
 
 .ol{list-style:none;width:100%;display:flex;flex-direction:column;gap:calc(var(--gap2)*.7)}.ol li{display:flex;gap:20px;align-items:flex-start;font-size:calc(var(--fb)*1.02);line-height:1.8}.ol b{flex:0 0 1.7em;height:1.7em;border-radius:50%;background:#c9a84c;color:#0c0a07;text-align:center;line-height:1.7em;font-family:Doran,Vazirmatn;font-size:.9em}
 .cover .ct{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:var(--cpad);text-align:center;color:#faf7f2;display:flex;flex-direction:column;gap:18px;align-items:center}
@@ -102,6 +101,7 @@ VARS['st']=VARS['ig'].replace('--H:1350px','--H:1920px')
 def foot(i,plat):
     pos,tot=(XS.index(i)+1,len(XS)) if plat=='x' else (i,N)
     return f'<div class="foot"><span><b>دیوان</b> &nbsp;<span class="lt">diwan.center</span></span><span class="pg" dir="ltr">{fa(pos)} / {fa(tot)}</span></div>'
+def par(b): return '<div class="par">'+''.join('<p>'+' '.join(x.split('\n'))+'</p>' for x in b.split('\n\n'))+'</div>'
 def html(i,s,plat):
     k=s['k']; W,H=SIZES[plat]; wide=plat!='ig'
     frame='<div class="frame"></div><div class="dia a"></div><div class="dia b"></div><div class="dia c"></div><div class="dia d"></div>'
@@ -112,7 +112,7 @@ def html(i,s,plat):
     if k=='chips':
         inner=f'<h2>{s["title"]}</h2><div class="body">{s["body"]}</div><div class="chips">'+''.join(f'<div class="chip"><div class="w">{w}</div><div class="l">{l}</div></div>' for w,l in s['chips'])+f'</div><div class="note">{s["note"]}</div>'
     elif k=='text':
-        inner=(f'<div class="kk2">{s["kicker"]}</div>' if s.get('kicker') else '')+f'<h2>{s["title"]}</h2><div class="body">{s["body"]}</div>'
+        inner=f'<div class="kk2">{s["kicker"]}</div><h2>{s["title"]}</h2>'+par(s['body'])
     elif k=='word':
         inner=f'<h2>{s["title"]}</h2><div class="eq">{s["eq"]}</div><div class="body">{s["body"]}</div>'
     elif k=='verse':
@@ -145,12 +145,14 @@ def html(i,s,plat):
         rows=''.join(f'<div class="df"><b>{a}</b><div class="verse sm">{b}<br>{c}</div>'+(f'<span>{d}</span>' if d else '')+'</div>' for a,b,c,d in s['items'])
         inner=f'<div class="kk2">{s["kicker"]}</div><h2>{s["title"]}</h2><div class="dfs" style="gap:calc(var(--gap2,18px)*.5)">{rows}</div>'+(f'<div class="dnote">{s["more"]}</div>' if s.get('more') else '')
     elif k=='tv':
-        inner=f'<div class="kk2">{s["kicker"]}</div><h2>{s["title"]}</h2><div class="body">{s["body"]}</div><div class="verse sm">{"<br>".join(s["verse"])}</div>'
+        vs=f'<div class="verse sm">{"<br>".join(s["verse"])}</div>'
+        inner=f'<div class="kk2">{s["kicker"]}</div><h2>{s["title"]}</h2>'+((vs+par(s['body'])) if s.get('vfirst') else (par(s['body'])+vs))
     elif k=='close':
-        inner=f'<h2>{s["title"]}</h2><div class="body">{s["body"]}</div><div class="final">{s["final"]}</div><div class="link">diwan.center</div>'+(f'<div class="note">{s["src"]}</div>' if s.get('src') else '')
+        inner=f'<h2>{s["title"]}</h2>'+par(s['body'])+f'<div class="final">{s["final"]}</div><div class="link">diwan.center</div>'+(f'<div class="note">{s["src"]}</div>' if s.get('src') else '')
     elif k in('imgtext','imgverse'):
         t=(f'<div class="kk2">{s["kicker"]}</div>' if s.get('kicker') else '')+f'<h2>{s["title"]}</h2>'
-        if s.get('body'): t+=f'<div class="body">{s["body"]}</div>'
+        if s.get('body'): t+=(par(s['body']) if s.get('para') else f'<div class="body">{s["body"]}</div>')
+        if s.get('cred'): t+=f'<div class="cred">{s["cred"]}</div>'
         if s.get('verse'): t+=f'<div class="verse sm">{"<br>".join(s["verse"])}</div><div class="src">{s["src"]}</div>'
         if wide:
             return f'<div class="slide"><div class="panel" style="--pad:44px 56px 40px">{kick()}<div class="main">{t}</div>{foot(i,plat)}</div><div class="imgp" style="background-image:url(../{s.get("imgw",s["img"])});background-position:{s.get("tpos","50%")} center;{("flex-basis:%dpx"%s["pw"][plat]) if s.get("pw") else ""}"></div></div>'
