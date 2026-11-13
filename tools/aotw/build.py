@@ -70,7 +70,7 @@ h1,h2{font-family:Doran,Vazirmatn,sans-serif;font-weight:800;line-height:1.3;tex
 .tbl tr.win td{background:#fff1cc;font-weight:800;color:#1c1a16}.tbl td.bd{color:#836a27;font-weight:800;font-size:.72em}.tbl td:nth-child(2){font-family:Vazirmatn,sans-serif}.kk2{color:#836a27;font-weight:600;font-size:var(--fk)}.lead{font-size:calc(var(--fb)*.85);color:#6b6456;text-align:center}
 .acard{width:100%;border:2px solid #d7d2c6;border-radius:26px;padding:var(--ap);display:flex;flex-direction:var(--cdir);align-items:center;justify-content:center;gap:var(--ag);background:linear-gradient(165deg,rgba(43,93,147,.09),#fffdf8 65%)}
 .aav{display:flex;flex-direction:column;align-items:center;gap:14px}.arch{width:var(--aw);height:calc(var(--aw)*1.25);border-radius:999px 999px 14px 14px;border:3px solid rgba(43,93,147,.4);background-size:cover;background-position:center}
-.lvl{border:1.5px solid #2b5d93;color:#2b5d93;border-radius:999px;padding:4px 22px;font-size:calc(var(--fb)*.6);font-weight:500}
+.arch.ini{display:flex;align-items:center;justify-content:center;font-family:Doran,Vazirmatn;font-weight:800;color:#2b5d93;background:rgba(43,93,147,.12);font-size:calc(var(--aw)*.4)}.lvl{border:1.5px solid #2b5d93;color:#2b5d93;border-radius:999px;padding:4px 22px;font-size:calc(var(--fb)*.6);font-weight:500}
 .atx{text-align:center}.aname{font-family:Doran,Vazirmatn;font-weight:800;font-size:calc(var(--ft)*1.1)}.aact{color:#6b6456;font-size:calc(var(--fb)*.85);margin-top:6px}
 .wk{display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid #e3ded3;border-radius:16px;padding:12px 16px;max-width:var(--wkw)}
 .wt{font-weight:600;font-size:calc(var(--fb)*.62);line-height:1.7;text-align:right}.wc{flex:0 0 var(--cw);height:var(--cw);border-radius:10px;background-size:cover;background-position:center}
@@ -120,9 +120,9 @@ def html(i,s,plat):
         inner=f'<h2>{s["title"]}</h2><table class="tbl"><tr>'+''.join(f'<th>{h}</th>' for h in s['head'])+'</tr>'+''.join('<tr>'+''.join(f'<td>{c}</td>' for c in r)+'</tr>' for r in s['rows'])+'</table>'
     elif k=='aotw':
         inner=(f'<div class="kk2">{s["kicker"]}</div><h2 style="font-size:calc(var(--ft)*1.25)">{s["title"]}</h2><div class="lead">{s["lead"]}</div>'
-          f'<div class="acard"><div class="aav"><div class="arch" style="background-image:url(../'+CFG['avatar']+')"></div></div>'
+          f'<div class="acard"><div class="aav">'+('<div class="arch" style="background-image:url(../'+CFG['avatar']+')"></div>' if CFG.get('avatar') else '<div class="arch ini">'+CFG.get('initials','')+'</div>')+'</div>'
           f'<div class="atx"><div class="aname">{s["name"]}</div><div class="aact">{s["act"]}</div></div>'
-          f'<div class="wk"><div class="wt">{s["work"]}</div>'+('<div class="wc" style="background-image:url(../'+CFG['cover']+')"></div>' if CFG.get('cover') else '')+'</div></div>')
+          +(f'<div class="wk"><div class="wt">{s["work"]}</div>'+('<div class="wc" style="background-image:url(../'+CFG['cover']+')"></div>' if CFG.get('cover') else '')+'</div>' if s.get('work') else '')+'</div>')
     elif k=='lb':
         rows=''.join('<tr'+(' class="win"' if n==0 else '')+'>'+''.join(f'<td>{c}</td>' for c in r)+('<td class="bd">'+s['badge']+'</td>' if n==0 else '<td class="bd"></td>')+'</tr>' for n,r in enumerate(s['rows']))
         inner=f'<h2>{s["title"]}</h2><table class="tbl"><tr>'+''.join(f'<th>{h}</th>' for h in s['head'])+'<th></th></tr>'+rows+f'</table><div class="note">{s["note"]}</div>'
