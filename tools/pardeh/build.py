@@ -202,7 +202,7 @@ def html(i,s,plat):
     elif k=='blocks':
         out=[]
         for t,x in s['blocks']:
-            if t=='p': out.append(f'<div class="bp">{re.sub("⟦([^⟧]*)⟧",lambda m:kw('«'+m.group(1)+'»'),x)}</div>')
+            if t=='p': out.append(f'<div class="bp">{x.replace('⟦','«').replace('⟧','»')}</div>')
             elif t=='n': out.append(f'<div class="bn">{x}</div>')
             elif t=='c': out.append(f'<div class="vcap">{x}</div>')
             elif t=='q': out.append(f'<div class="bq">{kw(x)}</div>')
