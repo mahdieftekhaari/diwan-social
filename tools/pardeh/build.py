@@ -35,6 +35,12 @@ S=[
    ('q','«همه زشت‌ها مخدره و مستوره می‌شوند»'),
    ('p','یعنی «مخدره» تقریباً کلیشه شده بود.'),
  ]),
+ dict(k='blocks',title='پوشیده‌روی',fb=26,uni=1,cps=.84,cols=1,blocks=[
+   ('p','«پوشیده‌روی» در شعر کهن یعنی نقاب‌دار. فردوسی در بیژن و منیژه از «دخت پوشیده‌روی» می‌گوید که «به پرده درون» است. پرده‌نشینی دور ماندن بود و پوشیده‌روی پوشاندن صورت.'),
+   ('p','ایرج میرزا به طنز می‌گوید دیدنِ روی زنِ بی‌نقاب، حتی نقشی گچی، برای مؤمنان فاجعه بود.'),
+   ('v',V(('بر سردر کاروان سرایی','تصویر زنی به گچ کشیدند'),('ارباب عمایم این خبر را','از مُخبِر صادقی شنیدند'),('گفتند که وا شریعتا، خلق','روی زن بی‌نقاب دیدند'),('آسیمه سر از درون مسجد','تا سردر آن سرا دویدند'),('ایمان و امان به سرعت برق','می‌رفت که مؤمنین رسیدند'),('این آب آورد، آن یکی خاک','یک پیچه ز گِل بر او بریدند'))),
+   ('c','ایرج میرزا، «تصویر زن»'),
+ ]),
  dict(k='blocks',title='پرده‌نشین',fb=32,blocks=[
    ('p','«پرده‌نشین» به زنی گفته می‌شد که از نگاه نامحرم دور می‌ماند. برای فهمیدنش باید به گذشته برگردیم.'),
    ('p','در متن‌های پیش از اسلام، نشانه‌ی روشنی از پرده‌ی جداکننده پیدا نشد. اما معماری درون‌گرای ایرانی، با شبستان شاهان و بعدها با اندرونی و بیرونی، این جداسازی را انجام می‌داد. در متن‌های کهن، پرده‌دار و حاجب و مانند آن‌ها هم دیده می‌شود.'),
@@ -85,7 +91,7 @@ S=[
  dict(k='big',text='در پرده ننشینید،<br>بنویسید و در دیوان منتشر کنید.<div class="lt" style="font-size:.5em;color:#836a27;margin-top:.5em">diwan.center</div>'),
 ]
 
-N=14; XS=[1,4,8,14]
+N=15; XS=[1,4,9,15]
 assert len(S)==N
 SIZES={'st':(1080,1920),'ig':(1080,1350),'tg':(1280,720),'x':(1600,900)}
 CSS=DORAN+"""
@@ -192,8 +198,8 @@ def html(i,s,plat):
             elif t=='n': out.append(f'<div class="bn">{x}</div>')
             elif t=='c': out.append(f'<div class="vcap">{x}</div>')
             elif t=='q': out.append(f'<div class="bq">{x}</div>')
-            elif t=='v': out.append('<div class="bv">'+''.join('<div class="cpl">'+'<br>'.join(c)+'</div>' for c in x)+'</div>')
-        inner=f'<h2>{s["title"]}</h2><div class="bl{' ra' if s.get('ra') else ''}" style="{'--bqs:1;--cps:1;' if s.get('uni') else ''}--fb:{round(s.get("fb",38)*{"ig":1,"st":1.1,"tg":.6,"x":.72}[plat])}px">'+''.join(out)+'</div>'
+            elif t=='v': out.append('<div class="bv"'+(' style="display:grid;grid-template-columns:1fr 1fr;column-gap:4%"' if (s.get('cols') and plat in ('tg','x')) else '')+'>'+''.join('<div class="cpl">'+'<br>'.join(c)+'</div>' for c in x)+'</div>')
+        inner=f'<h2>{s["title"]}</h2><div class="bl{' ra' if s.get('ra') else ''}" style="{('--bqs:1;--cps:%s;'%s.get('cps',1)) if s.get('uni') else ''}--fb:{round(s.get("fb",38)*{"ig":1,"st":1.1,"tg":.6,"x":.72}[plat])}px">'+''.join(out)+'</div>'
     elif k=='big':
         inner=f'<div class="final" style="font-size:calc(var(--ft)*1.25)">{s["text"]}</div>'
     elif k=='text':
