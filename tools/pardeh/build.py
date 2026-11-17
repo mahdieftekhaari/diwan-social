@@ -35,17 +35,17 @@ S=[
    ('q','«همه زشت‌ها مخدره و مستوره می‌شوند»'),
    ('p','یعنی «مخدره» تقریباً کلیشه شده بود.'),
  ]),
- dict(k='blocks',title='پوشیده‌روی',fb=26,uni=1,cps=.84,cols=1,blocks=[
-   ('p','«پوشیده‌روی» در شعر کهن یعنی نقاب‌دار. فردوسی در بیژن و منیژه از «دخت پوشیده‌روی» می‌گوید که «به پرده درون» است. پرده‌نشینی دور ماندن بود و پوشیده‌روی پوشاندن صورت.'),
-   ('p','ایرج میرزا به طنز می‌گوید دیدنِ روی زنِ بی‌نقاب، حتی نقشی گچی، برای مؤمنان فاجعه بود.'),
-   ('v',V(('بر سردر کاروان سرایی','تصویر زنی به گچ کشیدند'),('ارباب عمایم این خبر را','از مُخبِر صادقی شنیدند'),('گفتند که وا شریعتا، خلق','روی زن بی‌نقاب دیدند'),('آسیمه سر از درون مسجد','تا سردر آن سرا دویدند'),('ایمان و امان به سرعت برق','می‌رفت که مؤمنین رسیدند'),('این آب آورد، آن یکی خاک','یک پیچه ز گِل بر او بریدند'))),
-   ('c','ایرج میرزا، «تصویر زن»'),
- ]),
  dict(k='blocks',title='پرده‌نشین',fb=32,blocks=[
    ('p','«پرده‌نشین» به زنی گفته می‌شد که از نگاه نامحرم دور می‌ماند. برای فهمیدنش باید به گذشته برگردیم.'),
    ('p','در متن‌های پیش از اسلام، نشانه‌ی روشنی از پرده‌ی جداکننده پیدا نشد. اما معماری درون‌گرای ایرانی، با شبستان شاهان و بعدها با اندرونی و بیرونی، این جداسازی را انجام می‌داد. در متن‌های کهن، پرده‌دار و حاجب و مانند آن‌ها هم دیده می‌شود.'),
    ('p','فردوسی، که پس از اسلام می‌نوشت، از زبان کاووس به سیاوش می‌گوید:'),
    ('v',V(('پَسِ پَردِهٔ مَن تُرا خواهَرَست','چو سودابه خود مِهرَبان مادَرَست'),('پَسِ پَرده پوشیدگان را ببین','زَمانی بِمان تا کُنَند آفَرین'))),
+ ]),
+ dict(k='blocks',title='پوشیده‌روی',fb=30,uni=1,cps=1.14,one=1,blocks=[
+   ('p','«پوشیده‌روی» در شعر کهن یعنی نقاب‌دار. فردوسی در بیژن و منیژه از «دخت پوشیده‌روی» می‌گوید که «به پرده درون» است. پرده‌نشینی دور ماندن بود و پوشیده‌روی پوشاندن صورت.'),
+   ('p','ایرج میرزا به طنز می‌گوید دیدنِ روی زنِ بی‌نقاب، حتی نقشی گچی، برای مؤمنان فاجعه بود.'),
+   ('v',V(('بر سردر کاروان سرایی','تصویر زنی به گچ کشیدند'),('ارباب عمایم این خبر را','از مُخبِر صادقی شنیدند'),('گفتند که وا شریعتا، خلق','روی <u class="du">زن</u> <u class="du">بی‌نقاب</u> دیدند'),('آسیمه سر از درون مسجد','تا سردر آن سرا دویدند'),('ایمان و امان به سرعت برق','می‌رفت که مؤمنین رسیدند'),('این آب آورد، آن یکی خاک','یک <u class="du">پیچه</u> ز گِل بر او بریدند'))),
+   ('c','ایرج میرزا، «تصویر زن»'),
  ]),
  dict(k='blocks',title='دیگر ترکیب‌ها',fb=36,blocks=[
    ('p','پرده‌دری: افشای راز، یا برداشتن مانعی که ستر بود.'),
@@ -61,7 +61,7 @@ S=[
    ('v',V(('تَرسَم که اَشک در غَمِ ما پَرده دَر شَوَد','وین رازِ سَر به مُهر به عالَم سَمَر شَوَد'))),
    ('c','حافظ'),
  ]),
- dict(k='blocks',title='رابعه‌ی عدویه',fb=32,blocks=[
+ dict(k='blocks',title='عطار',fb=32,blocks=[
    ('p','عطار در تذکره‌الاولیا، رابعه‌ی عدویه، عارف زن بصره در قرن دوم هجری را چنین می‌ستاید:'),
    ('q','«آن مخدره‌ی خدر خاص، آن مستوره‌ی ستر اخلاص، آن سوخته‌ی عشق و اشتیاق، آن شیفته‌ی قرب و احتراق، آن گمشده‌ی وصال، آن مقبول الرجال، ثانیه‌ی مریم صفیه، رابعه‌ی عدویه»'),
    ('p','و بعد: «چون زن در راه خدای مرد بود، او را زن نتوان گفت»'),
@@ -167,6 +167,8 @@ h1,h2{font-family:Doran,Vazirmatn,sans-serif;font-weight:800;line-height:1.3;tex
 .bn{font-size:calc(var(--fb)*.85);line-height:1.8;color:#6b6456;text-align:center}
 .bq{font-size:calc(var(--fb)*var(--bqs,.92));line-height:1.95;text-align:center;width:100%;padding:0 10px;border-top:1px solid #d7c88f;border-bottom:1px solid #d7c88f;padding-top:.35em;padding-bottom:.35em}
 .bv{display:flex;flex-direction:column;gap:calc(var(--fb)*.4);width:100%}
+.cpl.one{display:flex;justify-content:center;gap:2em;white-space:nowrap}
+.du{text-decoration:underline dashed #836a27;text-decoration-thickness:2px;text-underline-offset:.35em}
 .cpl{text-align:center;font-weight:500;font-size:calc(var(--fb)*var(--cps,1.12));line-height:2}
 .cover .kk{color:#e3c46b;font-weight:600;font-size:var(--fk)}
 """
@@ -198,7 +200,7 @@ def html(i,s,plat):
             elif t=='n': out.append(f'<div class="bn">{x}</div>')
             elif t=='c': out.append(f'<div class="vcap">{x}</div>')
             elif t=='q': out.append(f'<div class="bq">{x}</div>')
-            elif t=='v': out.append('<div class="bv"'+(' style="display:grid;grid-template-columns:1fr 1fr;column-gap:4%"' if (s.get('cols') and plat in ('tg','x')) else '')+'>'+''.join('<div class="cpl">'+'<br>'.join(c)+'</div>' for c in x)+'</div>')
+            elif t=='v': out.append('<div class="bv"'+(' style="display:grid;grid-template-columns:1fr 1fr;column-gap:4%"' if (s.get('cols') and plat in ('tg','x')) else '')+'>'+''.join(('<div class="cpl one">'+''.join('<span class="hm">'+h+'</span>' for h in c)+'</div>' if s.get('one') else '<div class="cpl">'+'<br>'.join(c)+'</div>') for c in x)+'</div>')
         inner=f'<h2>{s["title"]}</h2><div class="bl{' ra' if s.get('ra') else ''}" style="{('--bqs:1;--cps:%s;'%s.get('cps',1)) if s.get('uni') else ''}--fb:{round(s.get("fb",38)*{"ig":1,"st":1.1,"tg":.6,"x":.72}[plat])}px">'+''.join(out)+'</div>'
     elif k=='big':
         inner=f'<div class="final" style="font-size:calc(var(--ft)*1.25)">{s["text"]}</div>'
