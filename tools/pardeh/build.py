@@ -8,7 +8,7 @@ N=5
 K='پرسه در جهان کلمه'
 def V(*cp): return [list(c) for c in cp]
 S=[
- dict(k='cover',kicker=K,img='assets/gen/cover_b.png',title='علیا مخدره',sub='در کارِ گلاب و گل حکمِ ازلی این بود<br>کاین شاهدِ بازاری وآن پرده‌نشین باشد<br><span style="font-size:.7em;color:#e3c46b">حافظ</span>'),
+ dict(k='cover',kicker=K,img='assets/gen/cover_b.png',title='علیا مخدره',sub='ناگهان پرده برانداخته‌ای، یعنی چه؟<br>مست از خانه برون تاخته‌ای، یعنی چه؟<br><span style="font-size:.7em;color:#e3c46b">حافظ</span>'),
  dict(k='blocks',title='مخدره در متون',fb=34,uni=1,blocks=[
    ('q','«اما این مخدره‌ی غیب را پیش از این هیچ مشاطه از انبیا و اولیا نقاب عزت از رخساره بر نینداخته‌اند و همواره او را در قباب غیرت و استار غبطت متواری داشته‌اند، تا دیده‌ی نامحرمان اغیار بر کمال جمال او نیفتد»'),
    ('c','مرصادالعباد، نجم‌الدین رازی، قرن هفتم'),
@@ -79,19 +79,14 @@ S=[
    ('c','منوچهری، مسمط ۱، قرن پنجم'),
    ('p','دهقان به تاکستان می‌رود و مثل پدری نگران، از «دختران رز» می‌پرسد چه کسی رویشان را دیده و چه کسی پرده‌ی ایزد را دریده. تاک‌ها در این تصویر دخترانی پرده‌نشین‌اند.'),
  ]),
- dict(k='blocks',title='امیرخسرو دهلوی',fb=36,blocks=[
-   ('p','شاعر پارسی‌گوی هند در قرن‌های هفتم و هشتم:'),
-   ('v',V(('ز زُلفِ پَرده‌دَرِ او که پَرده‌پوشِ دِل است','بیا که پَرده‌ی پوشیدگان دَریده شُده‌ست'))),
-   ('p','در یک خوانش، معشوق چنان است که پرده‌ی پوشیدگان، یعنی زنان پرده‌نشین، با دیدنش دریده می‌شود.'),
- ]),
  dict(k='blocks',title='حافظ',fb=38,blocks=[
    ('v',V(('جامِ می و خونِ دل هر یک به کسی دادند','در دایرهٔ قسمتِ اوضاع چنین باشد'),('در کارِ گلاب و گل حکمِ ازلی این بود','کاین شاهدِ بازاری وآن پرده‌نشین باشد'))),
    ('p','در این غزل، پرده‌نشین بودن و بازاری بودن «قسمت» است، نه انتخاب.'),
  ]),
- dict(k='big',text='در پرده ننشینید،<br>بنویسید و در دیوان منتشر کنید.<div class="lt" style="font-size:.5em;color:#836a27;margin-top:.5em">diwan.center</div>'),
+ dict(k='big',text='در پرده ننشینید،<br>بنویسید و در دیوان منتشر کنید.<br><span class="lt" style="display:block;font-size:.6em;margin-top:.4em;text-align:center">diwan.center</span>'),
 ]
 
-N=15; XS=[1,4,9,15]
+N=14; XS=[1,4,9,14]
 assert len(S)==N
 SIZES={'st':(1080,1920),'ig':(1080,1350),'tg':(1280,720),'x':(1600,900)}
 CSS=DORAN+"""
@@ -151,7 +146,7 @@ h1,h2{font-family:Doran,Vazirmatn,sans-serif;font-weight:800;line-height:1.3;tex
 .atx{text-align:center}.aname{font-family:Doran,Vazirmatn;font-weight:800;font-size:calc(var(--ft)*1.1)}.aact{color:#6b6456;font-size:calc(var(--fb)*.85);margin-top:6px}
 .wk{display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid #e3ded3;border-radius:16px;padding:12px 16px;max-width:var(--wkw)}
 .wt{font-weight:600;font-size:calc(var(--fb)*.62);line-height:1.7;text-align:right}.wc{flex:0 0 var(--cw);height:var(--cw);border-radius:10px;background-size:cover;background-position:center}
-.final{white-space:pre-line;font-family:Doran,Vazirmatn;font-weight:800;color:#836a27;font-size:var(--fb2);text-align:center;line-height:1.6}
+.final{white-space:pre-line;font-family:Doran,Vazirmatn;font-weight:800;color:#1c1a16;font-size:var(--fb2);text-align:center;line-height:1.6}
 .link{direction:ltr;font-weight:700;letter-spacing:.06em;color:#836a27;font-size:var(--ff2);text-align:center}
 .cover .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,8,0) 35%,rgba(20,16,8,.88) 100%);z-index:1}
 .cover{background-size:cover}
@@ -168,6 +163,7 @@ h1,h2{font-family:Doran,Vazirmatn,sans-serif;font-weight:800;line-height:1.3;tex
 .bq{font-size:calc(var(--fb)*var(--bqs,.92));line-height:1.95;text-align:center;width:100%;padding:0 10px;border-top:1px solid #d7c88f;border-bottom:1px solid #d7c88f;padding-top:.35em;padding-bottom:.35em}
 .bv{display:flex;flex-direction:column;gap:calc(var(--fb)*.4);width:100%}
 .cpl.one{display:flex;justify-content:center;gap:2em;white-space:nowrap}
+.cover .du{text-decoration-color:#e3c46b}
 .du{text-decoration:underline dashed #836a27;text-decoration-thickness:2px;text-underline-offset:.35em}
 .cpl{text-align:center;font-weight:500;font-size:calc(var(--fb)*var(--cps,1.12));line-height:2}
 .cover .kk{color:#e3c46b;font-weight:600;font-size:var(--fk)}
@@ -181,6 +177,16 @@ VARS['st']=VARS['ig'].replace('--H:1350px','--H:1920px')
 def foot(i,plat):
     pos,tot=(XS.index(i)+1,len(XS)) if plat=='x' else (i,N)
     return f'<div class="foot"><span><b>دیوان</b> &nbsp;<span class="lt">diwan.center</span></span><span class="pg" dir="ltr">{fa(pos)} / {fa(tot)}</span></div>'
+
+_D='[\u064B-\u0655]*'
+_W='[\u0621-\u063A\u0641-\u0655\u067E\u0686\u0698\u06A9\u06AF\u06CC\u200c]*'
+def _stem(w): return _D.join(re.escape(c) for c in w)
+_KEYS=['مخدر','پرده','پردگ','پوشیده\u200cروی','پوشیدگان','مقصورات','محتجب','خدر','حجاب']
+_RX=re.compile('(?<![\u0621-\u063A\u0641-\u0655\u067E\u0686\u0698\u06A9\u06AF\u06CC\u200c])('+'|'.join(_stem(k) for k in _KEYS)+')'+_W+_D)
+def kw(t):
+    # skip text already inside tags
+    parts=re.split(r'(<[^>]+>.*?</u>|<[^>]+>)',t)
+    return ''.join(p if p.startswith('<') else _RX.sub(lambda m:'<u class="du">'+m.group(0)+'</u>',p) for p in parts)
 def par(b): return '<div class="par">'+''.join('<p>'+' '.join(x.split('\n'))+'</p>' for x in b.split('\n\n'))+'</div>'
 def html(i,s,plat):
     k=s['k']; W,H=SIZES[plat]; wide=plat!='ig'
@@ -189,18 +195,18 @@ def html(i,s,plat):
     if k=='cover':
         bg=(f'background-image:url(../{s["img"]});background-position:center 22%' if s.get('img') else 'background:radial-gradient(ellipse at 50% 35%,#4a3a1c,#14100a 70%)')
         orn='' if s.get('img') else '<div class="frame" style="border-color:#c9a84c"></div><div class="dia a"></div><div class="dia b"></div><div class="dia c"></div><div class="dia d"></div>'
-        return f'<div class="slide cover" style="{bg}">{orn}<div class="shade"></div><div class="ct"><div class="kk">{s["kicker"]}</div><h1>{s["title"]}</h1><div class="sub">{s["sub"]}</div></div></div>'
+        return f'<div class="slide cover" style="{bg}">{orn}<div class="shade"></div><div class="ct"><div class="kk">{s["kicker"]}</div><h1>{s["title"]}</h1><div class="sub">{kw(s["sub"])}</div></div></div>'
     inner=''
     if k=='chips':
         inner=f'<h2>{s["title"]}</h2><div class="body">{s["body"]}</div><div class="chips">'+''.join(f'<div class="chip"><div class="w">{w}</div><div class="l">{l}</div></div>' for w,l in s['chips'])+f'</div><div class="note">{s["note"]}</div>'
     elif k=='blocks':
         out=[]
         for t,x in s['blocks']:
-            if t=='p': out.append(f'<div class="bp">{x}</div>')
+            if t=='p': out.append(f'<div class="bp">{kw(x)}</div>')
             elif t=='n': out.append(f'<div class="bn">{x}</div>')
             elif t=='c': out.append(f'<div class="vcap">{x}</div>')
-            elif t=='q': out.append(f'<div class="bq">{x}</div>')
-            elif t=='v': out.append('<div class="bv"'+(' style="display:grid;grid-template-columns:1fr 1fr;column-gap:4%"' if (s.get('cols') and plat in ('tg','x')) else '')+'>'+''.join(('<div class="cpl one">'+''.join('<span class="hm">'+h+'</span>' for h in c)+'</div>' if s.get('one') else '<div class="cpl">'+'<br>'.join(c)+'</div>') for c in x)+'</div>')
+            elif t=='q': out.append(f'<div class="bq">{kw(x)}</div>')
+            elif t=='v': out.append('<div class="bv"'+(' style="display:grid;grid-template-columns:1fr 1fr;column-gap:4%"' if (s.get('cols') and plat in ('tg','x')) else '')+'>'+''.join(('<div class="cpl one">'+''.join('<span class="hm">'+kw(h)+'</span>' for h in c)+'</div>' if s.get('one') else '<div class="cpl">'+'<br>'.join(kw(h) for h in c)+'</div>') for c in x)+'</div>')
         inner=f'<h2>{s["title"]}</h2><div class="bl{' ra' if s.get('ra') else ''}" style="{('--bqs:1;--cps:%s;'%s.get('cps',1)) if s.get('uni') else ''}--fb:{round(s.get("fb",38)*{"ig":1,"st":1.1,"tg":.6,"x":.72}[plat])}px">'+''.join(out)+'</div>'
     elif k=='big':
         inner=f'<div class="final" style="font-size:calc(var(--ft)*1.25)">{s["text"]}</div>'
