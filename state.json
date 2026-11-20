@@ -363,5 +363,21 @@
       ],
       "at": "2026-11-17T17:00:08.042Z"
     }
+  },
+  "post20": {
+    "ig": {
+      "bufferId": "6b004637fc5b97f0f808e6b5",
+      "dueAt": "2026-11-20T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "x": {
+      "bufferId": "6b0046377efc64d5e41e7a9a",
+      "dueAt": "2026-11-20T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "tg": {
+      "messageId": 89,
+      "at": "2026-11-20T17:00:01.618Z"
+    }
   }
 }
