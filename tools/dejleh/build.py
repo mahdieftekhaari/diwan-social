@@ -50,7 +50,7 @@ S=[
  dict(k='big',text='داستانت را در دیوان<br>منتشر کن؛ راهش را<br>خودش پیدا می‌کند.<br><span class="lt" style="display:block;font-size:.6em;margin-top:.4em;text-align:center;color:#836a27">diwan.center</span>'),
 ]
 
-N=8; XS=[1,3,5,8]
+N=8; XS=[1,3,4,8]
 assert len(S)==N
 SIZES={'st':(1080,1920),'ig':(1080,1350),'tg':(1280,720),'x':(1600,900)}
 CSS=DORAN+"""
