@@ -379,5 +379,31 @@
       "messageId": 89,
       "at": "2026-11-20T17:00:01.618Z"
     }
+  },
+  "post21": {
+    "ig": {
+      "bufferId": "6b0578de72354b1df8c64b28",
+      "dueAt": "2026-11-24T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "x": {
+      "bufferId": "6b0578df8d73e2588a9cde52",
+      "dueAt": "2026-11-24T17:00:00.000Z",
+      "status": "scheduled"
+    },
+    "tg": {
+      "messageId": 90,
+      "messageIds": [
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97
+      ],
+      "at": "2026-11-24T17:00:02.675Z"
+    }
   }
 }
