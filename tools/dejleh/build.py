@@ -8,7 +8,7 @@ N=5
 K='پرسه در جهان کلمه'
 def V(*cp): return [list(c) for c in cp]
 S=[
- dict(k='cover',kicker=K,title='تو نیکی می‌کن و<br>در دجله انداز',sub=''),
+ dict(k='cover',kicker=K,title='تو نیکی می‌کن و<br>در دجله انداز',sub='',art='assets/gen/cover_b.jpg'),
  dict(k='blocks',title='بیت از کیست؟',fb=33,jus=1,blocks=[
    ('p','این بیت از سعدی است، در مثنویات بخش مواعظ. حکایتش درباره‌ی پادشاهی است که از اسب می‌افتد و گردنش خشک می‌شود. طبیبی درمانش می‌کند، اما پادشاه در حق او ناسپاسی می‌کند. سعدی در پایان پند می‌دهد:'),
    ('v',V(('تو <u class="du">نیکویی</u> کن و در <u class="du">دجله</u> انداز','که ایزد در بیابانت دهد باز'))),
@@ -43,10 +43,15 @@ S=[
    ('p','در قابوس‌نامه عبارت فقط «به آب انداز» است و دجله را خودِ حکایت می‌آورد. در بیت سعدی، که در جوانی در نظامیه‌ی بغداد درس خوانده بود، نام رود در متن ضرب‌المثل نشست.'),
    ('p','پاداش هم فرق می‌کند: «روزی بر دهد» در قابوس‌نامه، و «در بیابانت دهد باز» نزد سعدی، یعنی درست در سخت‌ترین جا.'),
  ]),
+ dict(k='blocks',title='سبزه‌ای که به آب می‌رود',fb=34,jus=1,blocks=[
+   ('p','شاید این باور ریشه‌ای کهن‌تر داشته باشد. در سیزده‌به‌در، هر کس سبزه‌ی سفره‌ی هفت‌سین را به نیت هر آرزو گره می‌زند و به آب روان می‌سپارد.'),
+   ('p','یکی از نویسندگان فارسی‌زبان این رسم را پیشکش به آب و نیایش برای برکت می‌داند و ضرب‌المثل را هم از همین باور می‌شمارد.'),
+   ('p','در هر دو، چیزی ارزشمند بی‌چشم‌داشتِ بازگشت به آب سپرده می‌شود و پاداشش به آینده می‌ماند. اما سندی نیست که این رسم را مستقیم به ضرب‌المثل پیوند بدهد؛ فقط شباهتی است که می‌شود دید.'),
+ ]),
  dict(k='big',text='داستانت را در دیوان<br>منتشر کن؛ راهش را<br>خودش پیدا می‌کند.<br><span class="lt" style="display:block;font-size:.6em;margin-top:.4em;text-align:center;color:#836a27">diwan.center</span>'),
 ]
 
-N=7; XS=[1,2,3,7]
+N=8; XS=[1,2,3,8]
 assert len(S)==N
 SIZES={'st':(1080,1920),'ig':(1080,1350),'tg':(1280,720),'x':(1600,900)}
 CSS=DORAN+"""
@@ -152,6 +157,12 @@ def html(i,s,plat):
     k=s['k']; W,H=SIZES[plat]; wide=plat!='ig'
     frame='<div class="frame"></div><div class="dia a"></div><div class="dia b"></div><div class="dia c"></div><div class="dia d"></div>'
     def kick(): return ''
+    if k=='cover' and s.get('art'):
+        U='../'+s['art']
+        if not wide:
+            return (f'<div class="slide cover" style="background:#14100a url({U}) center top/cover no-repeat"><div class="ct" style="bottom:64px;gap:10px"><div class="kk">{s["kicker"]}</div><h1 style="line-height:1.5">{s["title"]}</h1></div></div>')
+        iw=int(H*928/1152)
+        return (f'<div class="slide cover" style="background:#14100a;flex-direction:row;align-items:stretch"><div style="flex:0 0 {iw}px;background:url({U}) center/cover no-repeat"></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;padding:0 40px"><div class="kk">{s["kicker"]}</div><h1 style="line-height:1.55">{s["title"]}</h1></div></div>')
     if k=='cover':
         bg=(f'background-image:url(../{s["img"]});background-position:center 22%' if s.get('img') else 'background:radial-gradient(ellipse at 50% 35%,#4a3a1c,#14100a 70%)')
         orn='' if s.get('img') else '<div class="frame" style="border-color:#c9a84c"></div><div class="dia a"></div><div class="dia b"></div><div class="dia c"></div><div class="dia d"></div>'
