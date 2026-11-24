@@ -160,9 +160,9 @@ def html(i,s,plat):
     if k=='cover' and s.get('art'):
         U='../'+s['art']
         if not wide:
-            return (f'<div class="slide cover" style="background:#14100a url({U}) center top/cover no-repeat"><div class="ct" style="bottom:64px;gap:10px"><div class="kk">{s["kicker"]}</div><h1 style="line-height:1.5">{s["title"]}</h1></div></div>')
+            return (f'<div class="slide cover" style="background:#14100a url({U}) center top/cover no-repeat"><div class="ct" style="bottom:64px;gap:10px"><div class="kk">{s["kicker"]}</div><h1 style="line-height:1.5;font-size:78px">{s["title"]}</h1></div></div>')
         iw=int(H*928/1152)
-        return (f'<div class="slide cover" style="background:#14100a;flex-direction:row;align-items:stretch"><div style="flex:0 0 {iw}px;background:url({U}) center/cover no-repeat"></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;padding:0 40px"><div class="kk">{s["kicker"]}</div><h1 style="line-height:1.55">{s["title"]}</h1></div></div>')
+        return (f'<div class="slide cover" style="background:#14100a;flex-direction:row;align-items:stretch"><div style="flex:0 0 {iw}px;background:url({U}) center/cover no-repeat"></div><div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;padding:0 40px"><div class="kk">{s["kicker"]}</div><h1 style="line-height:1.55;font-size:62px">{s["title"]}</h1></div></div>')
     if k=='cover':
         bg=(f'background-image:url(../{s["img"]});background-position:center 22%' if s.get('img') else 'background:radial-gradient(ellipse at 50% 35%,#4a3a1c,#14100a 70%)')
         orn='' if s.get('img') else '<div class="frame" style="border-color:#c9a84c"></div><div class="dia a"></div><div class="dia b"></div><div class="dia c"></div><div class="dia d"></div>'
