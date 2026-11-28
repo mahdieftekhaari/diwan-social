@@ -6,13 +6,16 @@ fa=lambda n:str(n).translate(FA)
 KICK='سیمای خیال'
 TAG='تصویر ساخته‌شده با هوش مصنوعی'
 S=[
- dict(k='img',art='assets/oblomov_in.png',title='آبلوموف',sub='از رمان «آبلوموف»، ایوان گنچارف'),
+ dict(k='img',art='assets/oblomov_in.png',kick=True,title='آبلوموف',sub='از رمان «آبلوموف»، ایوان گنچارف'),
  dict(k='text',title='گنچارف چه نوشته؟',paras=[
   'ایلیا ایلیچ آبلوموف کمی بیش از سی سال دارد؛ میان‌قد و خوش‌سیماست. چشم‌های خاکستری تیره‌اش جایی متمرکز نمی‌شود و چهره‌اش حالت ثابتی ندارد.',
   'به‌خاطر کم‌تحرکی از سنش پیرتر دیده می‌شود: گردنی سفید، دست‌هایی کوچک و چاق و شانه‌هایی نرم.',
   'در خانه روپوشی گشاد از پارچهٔ شرقی می‌پوشد، چنان بزرگ که دو بار دورش می‌پیچد، و دمپایی‌هایی چنان نرم که بی‌نگاه کردن پا در آن‌ها می‌رود.',
  ]),
- dict(k='img',art='assets/oblomov_out.png',title='و بیرون از خانه؟',sub='در رمان، عشق است که او را از خانه بیرون می‌کشد'),
+ dict(k='img',art='assets/oblomov_out.png',title='ایلیا ایلیچ آبلوموف'),
+ dict(k='img',art='assets/zakhar.png',title='زاخار'),
+ dict(k='img',art='assets/stolz.png',title='اشتولتز'),
+ dict(k='img',art='assets/olga.png',title='اولگا'),
 ]
 N=len(S)
 SIZES={'ig':(1080,1350),'tg':(1280,720),'x':(1600,900)}
@@ -61,7 +64,7 @@ def html(i,s,p):
     W,H=SIZES[p]
     if s['k']=='img':
         pic=f'<div class="pic" style="background-image:url(../{s["art"]})"><div class="tag">{TAG}</div></div>'
-        cap=f'<div class="cap"><div class="kk">{KICK}</div><h1>{s["title"]}</h1><div class="cs">{s["sub"]}</div></div>'
+        cap='<div class="cap">'+(f'<div class="kk">{KICK}</div>' if s.get('kick') else '')+f'<h1>{s["title"]}</h1>'+(f'<div class="cs">{s["sub"]}</div>' if s.get('sub') else '')+'</div>'
         # wide layout: image on the right (RTL start), text left
         cls='slide dark '+p+(' col' if p=='ig' else '')
         body=pic+cap
