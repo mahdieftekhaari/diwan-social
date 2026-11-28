@@ -11,7 +11,7 @@ S=[
   'ایلیا ایلیچ آبلوموف کمی بیش از سی سال دارد؛ میان‌قد و خوش‌سیماست. چشم‌های خاکستری تیره‌اش جایی متمرکز نمی‌شود و چهره‌اش حالت ثابتی ندارد.',
   'به‌خاطر کم‌تحرکی از سنش پیرتر دیده می‌شود: گردنی سفید، دست‌هایی کوچک و چاق و شانه‌هایی نرم.',
   'در خانه روپوشی گشاد از پارچهٔ شرقی می‌پوشد، چنان بزرگ که دو بار دورش می‌پیچد، و دمپایی‌هایی چنان نرم که بی‌نگاه کردن پا در آن‌ها می‌رود.',
- ],note='تصویرها خیالی‌ست و با در نظر گرفتن همین توصیف ساخته شده'),
+ ]),
  dict(k='img',art='assets/oblomov_out.png',title='و بیرون از خانه؟',sub='در رمان، عشق است که او را از خانه بیرون می‌کشد'),
 ]
 N=len(S)
@@ -69,7 +69,7 @@ def html(i,s,p):
         frame='<div class="frame"></div><div class="dia a"></div><div class="dia b"></div><div class="dia c"></div><div class="dia d"></div>'
         fb=int({'ig':38,'tg':23,'x':29}[p])
         paras=''.join(f'<div class="bp">{t}</div>' for t in s['paras'])
-        body=f'{frame}<div class="tx"><div class="kicker">{KICK}</div><h2>{s["title"]}</h2><div class="bl" style="--fb:{fb}px">{paras}<div class="bn">{s["note"]}</div></div><div class="foot"><span><b>دیوان</b> &nbsp;<span class="lt">diwan.center</span></span><span class="pg" dir="ltr">{fa(i)} / {fa(N)}</span></div></div>'
+        body=f'{frame}<div class="tx"><div class="kicker">{KICK}</div><h2>{s["title"]}</h2><div class="bl" style="--fb:{fb}px">{paras}</div><div class="foot"><span><b>دیوان</b> &nbsp;<span class="lt">diwan.center</span></span><span class="pg" dir="ltr">{fa(i)} / {fa(N)}</span></div></div>'
         cls='slide '+p
     return f'<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><style>{CSS}</style></head><body><div class="{cls}" style="{VARS[p]}">{body}</div></body></html>'
 if __name__=='__main__':
